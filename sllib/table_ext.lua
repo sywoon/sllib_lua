@@ -59,7 +59,7 @@ local function tableAddress(t)
     if _G._tostring then   --std库修改的
     	str = _G._tostring(t)
     else
-    	_G.tostring(t)
+    	str = _G.tostring(t)
     end
     return string.gsub(str, "^table: ", "") or ""
 end
