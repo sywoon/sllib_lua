@@ -26,12 +26,24 @@ function log(...)
 	end
 end
 
-function logw(v)
+-- w for warn
+function logw(...)
+	os.execute("echo. & color 0E")
+	for _, v in ipairs({...}) do
+		local str = _any2str(v)
+		logs.showLog(str)
+	end
+end
+
+--e for error
+function loge(...)
+	os.execute("echo. & color 0C")
+	log(...)
+
     local last = any2str_quotation
     any2str_quotation = false
     
-    local str = _any2str(v)
-    log(debug.traceback(str, 2))
+    log(debug.traceback("", 2))
     
     any2str_quotation = last
 end
@@ -87,17 +99,18 @@ function showLog(str)
 
 	local msg = str
 	if DEBUG_TIME then
-		msg = string.format("[%s-%s-%s %02s:%02s:%02s %s]\n%s\n",
+		msg = string.format("[%s-%s-%s %02s:%02s:%02s %s]\n%s",
 						date.year, date.month, date.day,
 						date.hour, date.min, date.sec,
 						clock,
 						str)
 	else
-		msg = str .. "\n"
+		msg = str
 	end
 
 	print(msg)	
 	writeLogFile(msg)
+	writeLogFile('\n')
 end
 
 function clearLog()

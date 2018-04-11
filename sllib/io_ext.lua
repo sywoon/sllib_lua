@@ -29,7 +29,17 @@ function io.writeFile(filepath, str, mode)
 	return true
 end
 
-
+function io.fileSize(path)
+    local size = 0
+    local file = io.open(path, "r")
+    if file then
+        local current = file:seek()
+        size = file:seek("end")
+        file:seek("set", current)
+        io.close(file)
+    end
+    return size
+end
 
 
 

@@ -4,7 +4,7 @@
 --		调用父类函数self:super():xxxxxx(...)
 --		dispose需要继承类自己在合适地方调用(非必须)
 --
--- create by songyw 17.3.31
+-- create by songyw 16.3.31
 ------------------------
 local M = {}
 Class = M

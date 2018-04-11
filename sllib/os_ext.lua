@@ -3,7 +3,13 @@ local pl = pl or {}
 pl.path = require "pl.path"
 pl.dir = require "pl.dir"
 
+
 --注意：所有的路径 都不带/结尾!!!
+
+-- 驱动盘路径 C: D: 等
+local function isWinDriver(path)
+	return string.match(path, "%a:")
+end
 
 --os.remove 删除文件
 --os.rename 重命名文件或文件夹 也可以做移动用
@@ -12,7 +18,7 @@ function os.mkdir(path)
 	local folderPath = ""
 	for i = 1, #dirs do
 		folderPath = folderPath .. dirs[i]
-		if not os.isdir(folderPath) then
+		if not isWinDriver(dirs[i]) and not os.isdir(folderPath) then
 			local flag, error = lfs.mkdir(folderPath)
 			if nil == flag then
 				return flag, error
