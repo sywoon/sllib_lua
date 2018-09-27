@@ -1,12 +1,12 @@
 # sllib_lua v1.1
 Extending the default library for Lua
 
-squish all files to sllib_mini.lua 
+squish all files to sllib_base.lua 
 
 
 # exam
 ```
-require "sllib_mini"
+require "sllib_base"
 table.print({11, 22})
 ```
 
@@ -14,13 +14,13 @@ table.print({11, 22})
 ## Class
 ```
 local A = Class:subclass()
-function A:initialize(...)
+function A:ctor(...)
     print("A init", ...)
 end
 
 local B = A:subclass()
-function B:initialize(...)
-	self:super():initialize(...)
+function B:ctor(...)
+	self:super():ctor(...)
 	print("B init", ...)
 end
 

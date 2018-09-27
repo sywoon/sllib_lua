@@ -7,13 +7,13 @@ table.print({11, 22})
 
 ----class
 local A = Class:subclass()
-function A:initialize(...)
+function A:ctor(...)
     print("A init", ...)
 end
 
 local B = A:subclass()
-function B:initialize(...)
-	self:super():initialize(...)
+function B:ctor(...)
+	self:super():ctor(...)
 	print("B init", ...)
 end
 

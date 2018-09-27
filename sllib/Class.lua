@@ -1,8 +1,8 @@
 ------------------------
 -- 简单的类
--- 支持：继承subclass 创建实例new 初始化函数initialize
+-- 支持：继承subclass 创建实例new 初始化函数ctor
 --		调用父类函数self:super():xxxxxx(...)
---		dispose需要继承类自己在合适地方调用(非必须)
+--		析构函数dtor根据业务需要继承类自己在合适地方调用(非必须)
 --
 -- create by songyw 16.3.31
 ------------------------
@@ -19,14 +19,14 @@ end
 
 function M:new(...)
 	local t = submeta(self)
-	t:initialize(...)
+	t:ctor(...)
 	return t
 end
 
-function M:initialize(...)
+function M:ctor(...)   --for constructor
 end
 
-function M:dispose()
+function M:dtor()  --for destructor
 end
 
 function M:subclass()
