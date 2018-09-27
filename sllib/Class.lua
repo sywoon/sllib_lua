@@ -29,8 +29,9 @@ end
 function M:dtor()  --for destructor
 end
 
-function M:subclass()
+function M:subclass(name)
 	local t = submeta(self)
+	t.__name = name
 	t.__parent = self
 	return t
 end
