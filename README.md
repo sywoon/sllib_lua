@@ -1,4 +1,4 @@
-# sllib_lua
+# sllib_lua v1.1
 Extending the default library for Lua
 
 squish all files to sllib_mini.lua 
