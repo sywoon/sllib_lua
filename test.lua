@@ -1,4 +1,4 @@
-require "sllib_mini"
+require "sllib_base"
 
 print("version", SLLIB_VERSION)
 

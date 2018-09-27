@@ -17,5 +17,5 @@ Module "sllib.time" "time.lua"
 
 Main "init.lua"
 
-Output "sllib_mini.lua"
+Output "sllib_base.lua"
 
