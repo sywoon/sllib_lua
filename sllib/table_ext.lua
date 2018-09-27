@@ -64,7 +64,12 @@ local function tableAddress(t)
     return string.gsub(str, "^table: ", "") or ""
 end
 
+_showInnerRef = true
 local function getInnerRef(tbl)
+	if not _showInnerRef then
+		return {}
+	end
+
     local loaded = {}
     local ref = {}
     local function _get(t)
@@ -89,7 +94,7 @@ function tostring(t, level, pre)
 	local loaded = {}
 	local showAddress = getInnerRef(t)
 	local function _tostring(t, level, pre)
-		level = level and (level - 1) or 10
+		level = level and (level - 1) or 30
 		if level < 0 then
 			return pre .. "..."
 		end
@@ -99,7 +104,9 @@ function tostring(t, level, pre)
 			return pre .. "{}"
 		end
 
-		loaded[t] = t 
+		if _showInnerRef then
+	      loaded[t] = t 
+	    end
 
 		local strs = {}
 		insert(strs, pre .. "{")
@@ -139,20 +146,25 @@ function tostring(t, level, pre)
 	                end
 				elseif type(v) == "number" then
 					insert(strs, numbertostring(v))
-				else
-					insert(strs, '"' .. _G.tostring(v) .. '"')
+				elseif type(v) == "string" then
+                    insert(strs, '"' .. v .. '"')
+                else
+                    insert(strs, _G.tostring(v))
 				end
 
 				insert(strs, ",\n")
 			end
 		else  --array
-			for _, v in ipairs(t) do
+			for i, v in ipairs(t) do
 				insert(strs, pre)
+				insert(strs, "[" .. numbertostring(i) .. "]")
+				insert(strs, " = ")
+				
 				if type(v) == "table" then
+					insert(strs, "\n")
 	                if loaded[v] then
 	                    insert(strs, tableAddress(v))
 	                else
-	                	remove(strs)  --多一个pre
 	                    insert(strs, _tostring(v, level, pre))
 	                end
 				elseif type(v) == "number" then

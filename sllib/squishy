@@ -1,0 +1,21 @@
+--Option "minify-locals" (false)
+Option "minify-level" "full"
+Option "uglify"
+Option "uglify-level" "full"
+Option "no-executable"
+
+Module "sllib.class" "Class.lua"
+Module "sllib.debug_ext" "debug_ext.lua"
+Module "sllib.global" "global.lua"
+Module "sllib.io_ext" "io_ext.lua"
+Module "sllib.logs" "logs.lua"
+Module "sllib.os_ext" "os_ext.lua"
+Module "sllib.profiler" "profiler.lua"
+Module "sllib.string_ext" "string_ext.lua"
+Module "sllib.table_ext" "table_ext.lua"
+Module "sllib.time" "time.lua"
+
+Main "init.lua"
+
+Output "sllib_mini.lua"
+
