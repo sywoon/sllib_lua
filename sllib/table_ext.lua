@@ -53,6 +53,16 @@ function merge(t, u)
 	return r
 end
 
+function concat(...)
+    local r = {}
+    for _, t in ipairs({...}) do
+        for k, v in pairs(t) do
+            r[k] = v
+        end
+    end
+    return r
+end
+
 
 local function tableAddress(t)
     local str
