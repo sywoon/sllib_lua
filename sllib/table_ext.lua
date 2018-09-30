@@ -66,9 +66,14 @@ local function tableAddress(t)
     return string.gsub(str, "^table: ", "") or ""
 end
 
-_showInnerRef = true
+--table内重复的引用 只显示地址
+__showInnerRef = false
+function setShowInnerRef(v)
+	__showInnerRef = v
+end
+
 local function getInnerRef(tbl)
-	if not _showInnerRef then
+	if not __showInnerRef then
 		return {}
 	end
 
@@ -92,6 +97,12 @@ local function getInnerRef(tbl)
     return ref
 end
 
+--数字做为key 不建议这么用 会导致pairs ipairs混乱
+__keyCanBeNum = false
+function setKeyCanBeNum(v)
+	__keyCanBeNum = v
+end
+
 function tostring(t, level, pre)
 	local loaded = {}
 	local showAddress = getInnerRef(t)
@@ -106,7 +117,7 @@ function tostring(t, level, pre)
 			return pre .. "{}"
 		end
 
-		if _showInnerRef then
+		if __showInnerRef then
 	      loaded[t] = t 
 	    end
 
@@ -119,7 +130,7 @@ function tostring(t, level, pre)
 		insert(strs, "\n")
 		pre = pre .. "  "
 
-		if #t == 0 then  --map
+		if __keyCanBeNum or #t == 0 then  --map
 			for k, v in pairs(t) do
 				insert(strs, pre)
 
