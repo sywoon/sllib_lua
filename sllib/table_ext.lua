@@ -45,15 +45,7 @@ function clone(t, nometa)
 	return u
 end
 
-function merge(t, u)
-	local r = clone(t)
-	for k, v in pairs(u) do
-		r[k] = v
-	end
-	return r
-end
-
-function concat(...)
+function merge(...)
     local r = {}
     for _, t in ipairs({...}) do
         for k, v in pairs(t) do

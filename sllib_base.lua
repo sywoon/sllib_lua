@@ -1,5 +1,5 @@
-local base_char,keywords=128,{"and","break","do","else","elseif","end","false","for","function","if","in","local","nil","not","or","repeat","return","then","true","until","while","insert","string","tostring","require","self","table","\"table\"","package","os","preload","numbertostring","format","totaltime","\"number\"","debug","reportsByTitle","type","mkpredir","calltime","tostringex","ipairs","logFunc","path","showLog","getFuncReport","clock","gsub","execute","callcount","_showInnerRef","writeLogFile","math","linedefined","concat","print","\"string\"","'\"'","splitpath","short_src","writeFile","profilingHandler","time","\"Unknown object!\"","\"sllib.table_ext\"","__parent","tracingHandler","dirname","level","modf","\"/\"","\"\\n\"","any2str","date","isdir","sethook","getinfo","dir","logs","match","\"sllib.io_ext\"","\"sllib.global\"","getFuncTitle","setmetatable","\" 1>nul 2>nul\"","module","sub","splitpathex","attributes","startTime","close","mkdir","month","\"\"","_tostring","traceback","\"\\\\\"","extension","copyfile","clearLog","stopTime","tonumber","basename","splitext","\"  \"","setLevel","io","name","open","\"profile\"","hour","seek","fmod","year","values","rename","isfile","socket","invert",}; function prettify(code) return code:gsub("["..string.char(base_char).."-"..string.char(base_char+#keywords).."]", 
-	function (c) return keywords[c:byte()-base_char]; end) end return assert(loadstring(prettify[===[ù.ü['sllib.class']=(â(...)å e={}Class=e
+local base_char,keywords=128,{"and","break","do","else","elseif","end","false","for","function","if","in","local","nil","not","or","repeat","return","then","true","until","while","insert","string","tostring","require","self","table","\"table\"","package","preload","os","numbertostring","format","totaltime","\"number\"","debug","reportsByTitle","type","mkpredir","calltime","tostringex","ipairs","gsub","callcount","path","clock","execute","_showInnerRef","showLog","logFunc","getFuncReport","writeLogFile","math","linedefined","print","\"string\"","'\"'","short_src","writeFile","splitpath","profilingHandler","concat","time","\"Unknown object!\"","\"sllib.table_ext\"","__parent","tracingHandler","date","logs","level","modf","sethook","\"\\n\"","dir","isdir","match","getinfo","dirname","any2str","\"/\"","\"sllib.global\"","getFuncTitle","\"sllib.io_ext\"","setmetatable","\" 1>nul 2>nul\"","module","sub","splitpathex","attributes","mkdir","extension","startTime","_tostring","traceback","month","\"\\\\\"","close","\"\"","basename","splitext","copyfile","tonumber","stopTime","\"  \"","clearLog","setLevel","io","name","fmod","year","\"profile\"","hour","open","seek","isfile","socket","rename","values","invert",}; function prettify(code) return code:gsub("["..string.char(base_char).."-"..string.char(base_char+#keywords).."]", 
+	function (c) return keywords[c:byte()-base_char]; end) end return assert(loadstring(prettify[===[ù.û['sllib.class']=(â(...)å e={}Class=e
 å n={}Class.¬=n
 å â n(e)e.__index=e
 ë ‘({},e)Ü
@@ -13,14 +13,14 @@ e.¬=ö
 Ü
 â e:super()ë ö.¬
 Ü
-Ü)ù.ü['sllib.debug_ext']=(â(...)å r=ô"sllib.profiler"å i=10
+Ü)ù.û['sllib.debug_ext']=(â(...)å l=ô"sllib.profiler"å i=10
 å s=100
 â §.tracevalue(e,t)e=e è 2
 t=t è 2
 å r={}õ.ñ(r,"stack tracevalue:")å l=á
-å n=Èå t=e+t
+å n=Ëå t=e+t
 ï e<t É
-å o=§.Õ(e,"nS")l=o.what=="main"å t={}õ.ñ(t,ó.°(n.."file:%s line:%d function:%s()\n",o.º,o.∂,o.Ï èﬁ))n=n..Èà n=1,i É
+å o=§.Õ(e,"nS")l=o.what=="main"å t={}õ.ñ(t,ó.°(n.."file:%s line:%d function:%s()\n",o.∫,o.∂,o.Ï è‚))n=n..Ëà n=1,i É
 å n,e=§.getlocal(e,n)ä ç==n í
 Ç
 Ü
@@ -28,44 +28,44 @@ t=t è 2
 å o
 ä ¶(e)==úí
 o=ó.◊(õ.©(e),1,s)Ñ
-o=…(e)Ü
-õ.ñ(t,…(n).."="..o)õ.ñ(t,»)Ü
+o=œ(e)Ü
+õ.ñ(t,œ(n).."="..o)õ.ñ(t,…)Ü
 Ü
-õ.ñ(r,õ.∑(t,n))ä l í
+õ.ñ(r,õ.æ(t,n))ä l í
 Ç
 Ü
 e=e+1
-n=n..ÈÜ
-ë õ.∑(r,»)Ü
-§.startanalysis=â(e)r:Í(3)r:start(e)Ü
-§.stopanalysis=â(e)r:stop(e)Ü
-Ü)ù.ü['sllib.global']=(â(...)â †(e)ä e<0 í
+n=n..ËÜ
+ë õ.æ(r,…)Ü
+§.startanalysis=â(e)l:Í(3)l:start(e)Ü
+§.stopanalysis=â(e)l:stop(e)Ü
+Ü)ù.û['sllib.global']=(â(...)â †(e)ä e<0 í
 ë"-"..†(-e)Ü
 ä e<=10^13 í
 ë ò(e)Ü
-ä µ.∆(e)~=e í
+ä µ.«(e)~=e í
 ë ò(e)Ü
-å n=µ.Ò(e,10^13)å e=µ.∆(e/10^13)å e=ó.°("%s%013s",ò(e),ò(n))ë e
+å n=µ.Ì(e,10^13)å e=µ.«(e/10^13)å e=ó.°("%s%013s",ò(e),ò(n))ë e
 Ü
-Ü)ù.ü['sllib.io_ext']=(â(...)â Î.readFile(n,e)e=e è"r"å e=Î.Ì(n,e)ä e==ç í
+Ü)ù.û['sllib.io_ext']=(â(...)â Î.readFile(n,e)e=e è"r"å e=Î.Ò(n,e)ä e==ç í
 ë ç
 Ü
-å n=e:read("*a")e:€()ë n
+å n=e:read("*a")e:·()ë n
 Ü
-â Î.Ω(t,n,e)e=e è"w"å e=Î.Ì(t,e)ä e==ç í
+â Î.ª(n,t,e)e=e è"w"å e=Î.Ò(n,e)ä e==ç í
 ë á
 Ü
-e:write(n)e:€()ë ì
+e:write(t)e:·()ë ì
 Ü
 â Î.fileSize(e)å n=0
-å e=Î.Ì(e,"r")ä e í
-å t=e:()n=e:("end")e:("set",t)Î.€(e)Ü
+å e=Î.Ò(e,"r")ä e í
+å t=e:Ú()n=e:Ú("end")e:Ú("set",t)Î.·(e)Ü
 ë n
 Ü
-Ü)ù.ü['sllib.logs']=(â(...)ô¡ô—å n=ì
-å â t(e)ä ¶(e)==πí
+Ü)ù.û['sllib.logs']=(â(...)ô¡ô”å n=ì
+å â t(e)ä ¶(e)==∏í
 ä n í
-ë∫..e..∫Ñ
+ëπ..e..πÑ
 ë e
 Ü
 Ö ¶(e)==úí
@@ -75,74 +75,74 @@ e:write(n)e:€()ë ì
 Ü
 Ü
 â log(...)à n,e ã ™({...})É
-å e=t(e)œ.≠(e)Ü
+å e=t(e)≈.±(e)Ü
 Ü
-â logw(...)û.±("echo. & color 0E")à n,e ã ™({...})É
-å e=t(e)œ.≠(e)Ü
+â logw(...)ü.Ø("echo. & color 0E")à n,e ã ™({...})É
+å e=t(e)≈.±(e)Ü
 Ü
-â loge(...)û.±("echo. & color 0C")log(...)å e=n
+â loge(...)ü.Ø("echo. & color 0C")log(...)å e=n
 n=á
-log(§.‡(ﬁ,2))n=e
+log(§.ﬁ(‚,2))n=e
 Ü
-â logf(e,...)œ.≠(ó.°(e,...))Ü
-â trace(e,...)e=e è"nil"å e=ó.°(e,...)å e=§.‡(e,2)œ.≠(e)Ü
-â clearlog()œ.‰()Ü
-å n=û
-å o=ó
-å s=∏
-å l=Î
-å i=á
+â logf(e,...)≈.±(ó.°(e,...))Ü
+â trace(e,...)e=e è"nil"å e=ó.°(e,...)å e=§.ﬁ(e,2)≈.±(e)Ü
+â clearlog()≈.È()Ü
+å t=ü
+å l=ó
+å s=∑
+å r=Î
+å a=á
 ÷("logs")å e
-å â r()ä e í
+å â i()ä e í
 ë e
 Ü
-å n=n. ("*t")å n=o.°("%s_%s_%s.log",n.Ú,n.›,n.day)e=n
+å n=t.ƒ("*t")å n=l.°("%s_%s_%s.log",n.Ó,n.ﬂ,n.day)e=n
 ë n
 Ü
 â setLogPath(n)e=n
 Ü
-â ¥(n)å e=r()l.Ω(e,n,"a+")Ü
-â ≠(t)å e=n. ("*t")å r=n.Ø()å n=t
-ä i í
-n=o.°("[%s-%s-%s %02s:%02s:%02s %s]\n%s",e.Ú,e.›,e.day,e.Ô,e.min,e.sec,r,t)Ñ
-n=t
+â ¥(n)å e=i()r.ª(e,n,"a+")Ü
+â ±(o)å e=t.ƒ("*t")å t=t.Æ()å n=o
+ä a í
+n=l.°("[%s-%s-%s %02s:%02s:%02s %s]\n%s",e.Ó,e.ﬂ,e.day,e.,e.min,e.sec,t,o)Ñ
+n=o
 Ü
 s(n)¥(n)¥('\n')Ü
-â ‰()å e=r()ä é n.exist(e)í
+â È()å e=i()ä é t.exist(e)í
 ë
 Ü
-l.Ω(e,ﬁ)Ü
-Ü)ù.ü['sllib.os_ext']=(â(...)å t=ô"lfs"å e=pl è{}e.¨=ô"pl.path"e.Œ=ô"pl.dir"å â r(e)ë ó.–(e,"%a:")Ü
-â û.‹(e)å n=û.ÿ(e)å e=ﬁà o=1,#n É
-e=e..n[o]ä é r(n[o])Å é û.À(e)í
-å e,n=t.‹(e)ä ç==e í
+r.ª(e,‚)Ü
+Ü)ù.û['sllib.os_ext']=(â(...)å t=ô"lfs"å e=pl è{}e.≠=ô"pl.path"e. =ô"pl.dir"å â r(e)ë ó.Ã(e,"%a:")Ü
+â ü.⁄(e)å n=ü.ÿ(e)å e=‚à o=1,#n É
+e=e..n[o]ä é r(n[o])Å é ü.À(e)í
+å e,n=t.⁄(e)ä ç==e í
 ë e,n
 Ü
 Ü
-e=e..«Ü
+e=e..–Ü
 ë ì
 Ü
-â û.ß(e)å e=û.ƒ(e)ä e Å e~=ﬁí
-ë û.‹(e)Ü
+â ü.ß(e)å e=ü.Œ(e)ä e Å e~=‚í
+ë ü.⁄(e)Ü
 ë ì
 Ü
-â û.rmdir(e)ä é û.À(e)í
+â ü.rmdir(e)ä é ü.À(e)í
 ë
 Ü
-e=ó.∞(e,«,·)å e="rd /S /Q "..e..’ë û.±(e)Ü
-â û.movedir(n,e)û.ß(e)ë û.Ù(n,e)Ü
-â û.copydir(t,n,e)t=ó.∞(t,«,·)n=ó.∞(n,«,·)û.ß(n)å n="xcopy /Y /E /I /Q "..t.." "..n..’ä e==ì í
-e=∏
+e=ó.´(e,–,‡)å e="rd /S /Q "..e..’ë ü.Ø(e)Ü
+â ü.movedir(n,e)ü.ß(e)ë ü.ı(n,e)Ü
+â ü.copydir(t,e,n)t=ó.´(t,–,‡)e=ó.´(e,–,‡)ü.ß(e)å e="xcopy /Y /E /I /Q "..t.." "..e..’ä n==ì í
+n=∑
 Ü
-ä e í e(n)Ü
-û.±(n)Ü
-â û.„(t,n)û.ß(n)ë e.Œ.„(t,n)Ü
-â û.movefile(n,e)û.ß(e)ë û.Ù(n,e)Ü
-â û.À(n)ë e.¨.À(n)Ü
-â û.dirempty(e)å e=û.Œ(e,ì)ë õ.empty(e)Ü
-â û.ı(n)ë e.¨.ı(n)Ü
-â û.exist(n)ë e.¨.exists(n)Ü
-â û.Œ(a,e,l)å n=30
+ä n í n(e)Ü
+ü.Ø(e)Ü
+â ü.Â(t,n)ü.ß(n)ë e. .Â(t,n)Ü
+â ü.movefile(n,e)ü.ß(e)ë ü.ı(n,e)Ü
+â ü.À(n)ë e.≠.À(n)Ü
+â ü.dirempty(e)å e=ü. (e,ì)ë õ.empty(e)Ü
+â ü.Û(n)ë e.≠.Û(n)Ü
+â ü.exist(n)ë e.≠.exists(n)Ü
+â ü. (a,e,i)å n=30
 ä ¶(e)=="boolean"í
 e=e==á Å 1 è n
 Ö ¶(e)==£í
@@ -150,120 +150,120 @@ e=e
 Ñ
 e=n
 Ü
-å o={}å r={}å â i(s,n)n=n-1
-à e ã t.Œ(s)É
+å s={}å r={}å â l(o,n)n=n-1
+à e ã t. (o)É
 ä e~='.'Å e~='..'í
-å e=s..'/'..e
+å e=o..'/'..e
 å t=t.Ÿ(e)ä t==ç í
 Ç
 Ü
-å t=t.mode=='directory'ä ç==l è l(e,t)í
+å t=t.mode=='directory'ä ç==i è i(e,t)í
 ä t í
-õ.ñ(o,e)Ñ
+õ.ñ(s,e)Ñ
 õ.ñ(r,e)Ü
 Ü
 ä t Å n>0 í
-i(e,n)Ü
+l(e,n)Ü
 Ü
 Ü
 Ü
-i(a,e)ë r,o
+l(a,e)ë r,s
 Ü
-â û.mkdirtree(e)å t={}à n,e ã ™(e)É
-e=ó.∞(e,·,«)å n=ó.split(e,«)å e=t
+â ü.mkdirtree(e)å t={}à n,e ã ™(e)É
+e=ó.´(e,‡,–)å n=ó.split(e,–)å e=t
 à t,n ã ™(n)É
 e[n]=e[n]è{}e=e[n]Ü
 Ü
 ë t
 Ü
-â û.files(e,n)ä ç==n í
-ë(û.Œ(e))Ü
-å e=û.Œ(e,ì,â(t,e)ä e í
+â ü.files(e,n)ä ç==n í
+ë(ü. (e))Ü
+å e=ü. (e,ì,â(t,e)ä e í
 ë á
 Ü
-ë ó.–(t,n)Ü)ë e
+ë ó.Ã(t,n)Ü)ë e
 Ü
-â û.filetime(e)å e=t.Ÿ(e)ë e Å e.modification è 0
+â ü.filetime(e)å e=t.Ÿ(e)ë e Å e.modification è 0
 Ü
-â û.Á(n)ë e.¨.Á(n)Ü
-â û.ƒ(n)ë e.¨.ƒ(n)Ü
-â û.ª(n)n=ó.∞(n,·,«)ä n[#n]==«í
+â ü.„(n)ë e.≠.„(n)Ü
+â ü.Œ(n)ë e.≠.Œ(n)Ü
+â ü.º(n)n=ó.´(n,‡,–)ä n[#n]==–í
 n=ó.◊(n,1,-2)Ü
-ë e.¨.ª(n)Ü
-â û.ÿ(e)å n={}å t=e
+ë e.≠.º(n)Ü
+â ü.ÿ(e)å n={}å t=e
 å e
 ï ì É
-t,e=û.ª(t)ä ç==e èﬁ==e í
+t,e=ü.º(t)ä ç==e è‚==e í
 Ç
 Ü
 õ.ñ(n,1,e)Ü
 ë n,#n
 Ü
-â û.Ë(n)ë e.¨.Ë(n)Ü
-â û.‚(n)ë e.¨.‚(n)Ü
-Ü)ù.ü['sllib.profiler']=(â(...)å e={}â e:setLogFunc(e)ö.´=e
+â ü.‰(n)ë e.≠.‰(n)Ü
+â ü.€(n)ë e.≠.€(n)Ü
+Ü)ù.û['sllib.profiler']=(â(...)å e={}â e:setLogFunc(e)ö.≤=e
 Ü
-â e:Í(e)ö.≈=e
+â e:Í(e)ö.∆=e
 Ü
-â e:start(e)e=e èÓö.´=∏
+â e:start(e)e=e èÔö.≤=∑
 ä e=="trace"í
-§.Ã(bind(ö.√,ö),'c')Ñ
-ö.•={}ö.⁄=û.Ø()ö.≈=3
-§.Ã(bind(ö.æ,ö),'cr')Ü
+§.»(bind(ö.√,ö),'c')Ñ
+ö.•={}ö.‹=ü.Æ()ö.∆=3
+§.»(bind(ö.Ω,ö),'cr')Ü
 Ü
-â e:stop(e)e=e èÓ§.Ã()ä e=="trace"í
+â e:stop(e)e=e èÔ§.»()ä e=="trace"í
 ë
 Ü
-ö.Â=û.Ø()å n=ö.Â-ö.⁄
+ö.Á=ü.Æ()å n=ö.Á-ö.‹
 ä n<.001 í
-ö.´("total time less 0.001s")ë
+ö.≤("total time less 0.001s")ë
 Ü
-å e=õ.Û(ö.•)õ.sort(e,â(e,n)ë e.¢>n.¢
+å e=õ.ˆ(ö.•)õ.sort(e,â(e,n)ë e.¢>n.¢
 Ü)à t,e ã ™(e)É
 å n=(e.¢/n)*100
 ä n<1 í
 Ç
 Ü
-å e=ó.°("time:%6.3f, percet:%.2f%%, count:%d, %s",e.¢,n,e.≤,e.title)ö.´(e)Ü
+å e=ó.°("time:%6.3f, percet:%.2f%%, count:%d, %s",e.¢,n,e.¨,e.title)ö.≤(e)Ü
 Ü
-â e:√()å e=§.Õ(ö.≈,'nS')å e=ó.°("file:%s line:%d function:%s()",e.º,e.∂,e.Ï èﬁ)ö.´(e)Ü
-â e:”(e)å t=e.Ï è'anonymous'å n=e.º è'C_FUNC'å e=e.∂ è 0
-ë ó.°("file:%s line:%s function:%s",n,e,t)Ü
-â e:Æ(e)å n=ö:”(e)å e=ö.•[n]ä é e í
-e={title=n,≤=0,¢=0,}ö.•[n]=e
+â e:√()å e=§.Õ(ö.∆,'nS')å e=ó.°("file:%s line:%d function:%s()",e.∫,e.∂,e.Ï è‚)ö.≤(e)Ü
+â e:“(e)å n=e.Ï è'anonymous'å t=e.∫ è'C_FUNC'å e=e.∂ è 0
+ë ó.°("file:%s line:%s function:%s",t,e,n)Ü
+â e:≥(e)å n=ö:“(e)å e=ö.•[n]ä é e í
+e={title=n,¨=0,¢=0,}ö.•[n]=e
 Ü
 ë e
 Ü
-â e:æ(n)å o=â(e)å e=ö:Æ(e)e.®=û.Ø()e.≤=e.≤+1
+â e:Ω(n)å o=â(e)å e=ö:≥(e)e.®=ü.Æ()e.¨=e.¨+1
 Ü
-å t=â(e)å n=û.Ø()å e=ö:Æ(e)ä e.® Å e.®>0 í
+å t=â(e)å n=ü.Æ()å e=ö:≥(e)ä e.® Å e.®>0 í
 e.¢=e.¢+(n-e.®)e.®=0
 Ü
 Ü
-å e=§.Õ(ö.≈,'nS')ä n=="call"í
+å e=§.Õ(ö.∆,'nS')ä n=="call"í
 o(e)Ö n=="return"í
 t(e)Ü
 Ü
 ë e
-Ü)ù.ü['sllib.string_ext']=(â(...)â ó.strtox16(e)ë ó.∞(e,".",â(e)ë ó.°("%02X",ó.byte(e))Ü)Ü
-â ó.x16tostr(e)ë ó.∞(e,"..",â(e)å e=Ê(e,16)ë ó.char(e)Ü)Ü
-â ó.dumpex(e)ë ó.∞(e,".",â(e)ë ó.°("%02X ",ó.byte(e))Ü)Ü
-â ó.iterateString(n,e,t)e=e è'\n'ä é ó.–(n,e)í
+Ü)ù.û['sllib.string_ext']=(â(...)â ó.strtox16(e)ë ó.´(e,".",â(e)ë ó.°("%02X",ó.byte(e))Ü)Ü
+â ó.x16tostr(e)ë ó.´(e,"..",â(e)å e=Ê(e,16)ë ó.char(e)Ü)Ü
+â ó.dumpex(e)ë ó.´(e,".",â(e)ë ó.°("%02X ",ó.byte(e))Ü)Ü
+â ó.iterateString(n,e,t)e=e è'\n'ä é ó.Ã(n,e)í
 t(n)ë
 Ü
 à e ã ó.gmatch(n,"(.-)"..e)É
 t(e)Ü
 ä ó.◊(n,#n-#e+1)==e í
-t(ﬁ)ë
+t(‚)ë
 Ü
-å e=ó.–(n,".+"..e.."(.*)$")ä e í
+å e=ó.Ã(n,".+"..e.."(.*)$")ä e í
 t(e)Ü
 Ü
 â ó.split(n,o)å e=1
 å t=1
 å t={}ï e É
-å r,o=ó.find(n,o,e)ä r Å o í
-õ.ñ(t,ó.◊(n,e,r-1))e=o+1
+å o,r=ó.find(n,o,e)ä o Å r í
+õ.ñ(t,ó.◊(n,e,o-1))e=r+1
 Ñ
 ä e<=#n í
 õ.ñ(t,ó.◊(n,e,-1))Ü
@@ -272,140 +272,135 @@ t(e)Ü
 Ü
 ë t
 Ü
-Ü)ù.ü['sllib.table_ext']=(â(...)ô“å r=_G
-å i=pairs
-å g=™
+Ü)ù.û['sllib.table_ext']=(â(...)ô—å o=_G
+å s=pairs
+å f=™
 å n=¶
-å h=ó
+å g=ó
 å l=next
-å s=‘
-å o=getmetatable
+å r=‘
+å t=getmetatable
 å a=†
 ÷(ú)â empty(e)ë l(e)==ç
 Ü
-â Û(n)å e={}à t,n ã i(n è{})É
+â ˆ(n)å e={}à t,n ã s(n è{})É
 ñ(e,n)Ü
 ë e
 Ü
-â ˜(n)å e={}à n,t ã i(n è{})É
+â ˜(n)å e={}à n,t ã s(n è{})É
 e[t]=n
 Ü
 ë e
 Ü
-â clone(n,t)å e={}ä é t í
-s(e,o(n))Ü
-à t,n ã i(n)É
-e[t]=n
-Ü
-ë e
-Ü
-â merge(e,n)å e=clone(e)à t,n ã i(n)É
-e[t]=n
-Ü
-ë e
-Ü
-â ∑(...)å e={}à t,n ã g({...})É
-à n,t ã i(n)É
+â clone(n,o)å e={}ä é o í
+r(e,t(n))Ü
+à n,t ã s(n)É
 e[n]=t
 Ü
+ë e
+Ü
+â merge(...)å e={}à t,n ã f({...})É
+à t,n ã s(n)É
+e[t]=n
+Ü
 Ü
 ë e
 Ü
-å â c(n)å e
-ä r.ﬂ í
-e=r.ﬂ(n)Ñ
-e=r.ò(n)Ü
-ë h.∞(e,"^table: ",ﬁ)èﬁÜ
-≥=ì
-å â s(l)ä é ≥ í
+å â d(n)å e
+ä o.› í
+e=o.›(n)Ñ
+e=o.ò(n)Ü
+ë g.´(e,"^table: ",‚)è‚Ü
+∞=ì
+å â i(l)ä é ∞ í
 ë{}Ü
-å o={}å r={}å â t(e)ä o[e]í
-r[e]=e
+å r={}å o={}å â t(e)ä r[e]í
+o[e]=e
 ë
 Ü
-o[e]=e
-à e,o ã i(e)É
-ä n(e)==úí
-t(e)Ö n(o)==úí
-t(o)Ü
+r[e]=e
+à o,e ã s(e)É
+ä n(o)==úí
+t(o)Ö n(e)==úí
+t(e)Ü
 Ü
 Ü
-t(l)ë r
+t(l)ë o
 Ü
-â ò(f,b,m)å d={}å p=s(f)å â u(o,s,t)s=s Å(s-1)è 30
-ä s<0 í
+â ò(h,p,b)å u={}å m=i(h)å â c(r,i,t)i=i Å(i-1)è 30
+ä i<0 í
 ë t.."..."Ü
-t=t èﬁä l(o)==ç í
+t=t è‚ä l(r)==ç í
 ë t.."{}"Ü
-ä ≥ í
-d[o]=o
+ä ∞ í
+u[r]=r
 Ü
-å e={}ñ(e,t.."{")ä p[o]í
-ñ(e,c(o))Ü
-ñ(e,»)t=t..Èä#o==0 í
-à i,l ã i(o)É
-ñ(e,t)ä n(i)==úí
-ä d[o]í
-ñ(e,c(o))Ñ
-remove(e)ñ(e,u(i,s,t))Ü
-Ö n(i)==£í
-ñ(e,"["..a(i).."]")Ñ
-å n=r.ò(i)ñ(e,'["'..n..'"]')Ü
+å e={}ñ(e,t.."{")ä m[r]í
+ñ(e,d(r))Ü
+ñ(e,…)t=t..Ëä#r==0 í
+à s,l ã s(r)É
+ñ(e,t)ä n(s)==úí
+ä u[r]í
+ñ(e,d(r))Ñ
+remove(e)ñ(e,c(s,i,t))Ü
+Ö n(s)==£í
+ñ(e,"["..a(s).."]")Ñ
+å n=o.ò(s)ñ(e,'["'..n..'"]')Ü
 ñ(e," = ")ä n(l)==úí
-ä d[l]í
-ñ(e,c(l))Ñ
-ñ(e,»)ñ(e,u(l,s,t))Ü
+ä u[l]í
+ñ(e,d(l))Ñ
+ñ(e,…)ñ(e,c(l,i,t))Ü
 Ö n(l)==£í
-ñ(e,a(l))Ö n(l)==πí
-ñ(e,∫..l..∫)Ñ
-ñ(e,r.ò(l))Ü
+ñ(e,a(l))Ö n(l)==∏í
+ñ(e,π..l..π)Ñ
+ñ(e,o.ò(l))Ü
 ñ(e,",\n")Ü
 Ñ
-à l,o ã g(o)É
-ñ(e,t)ñ(e,"["..a(l).."]")ñ(e," = ")ä n(o)==úí
-ñ(e,»)ä d[o]í
-ñ(e,c(o))Ñ
-ñ(e,u(o,s,t))Ü
-Ö n(o)==£í
-ñ(e,a(o))Ñ
-ñ(e,∫..r.ò(o)..∫)Ü
+à l,r ã f(r)É
+ñ(e,t)ñ(e,"["..a(l).."]")ñ(e," = ")ä n(r)==úí
+ñ(e,…)ä u[r]í
+ñ(e,d(r))Ñ
+ñ(e,c(r,i,t))Ü
+Ö n(r)==£í
+ñ(e,a(r))Ñ
+ñ(e,π..o.ò(r)..π)Ü
 ñ(e,",\n")Ü
 Ü
-e[#e]=","ñ(e,»..h.◊(t,1,-3).."}")ë ∑(e)Ü
-ë u(f,b,m)Ü
-â ©(t,o)o=o Å(o-1)è 10
-ä o<0 í
+e[#e]=","ñ(e,…..g.◊(t,1,-3).."}")ë æ(e)Ü
+ë c(h,p,b)Ü
+â ©(t,r)r=r Å(r-1)è 10
+ä r<0 í
 ë"..."Ü
-å e={}ñ(e,"{")à l,t ã i(t)É
+å e={}ñ(e,"{")à l,t ã s(t)É
 ä n(l)==úí
-ñ(e,©(l,o))ñ(e,"=")Ö n(l)==£í
+ñ(e,©(l,r))ñ(e,"=")Ö n(l)==£í
 Ñ
-ñ(e,'["'..r.ò(l)..'"]')ñ(e,"=")Ü
+ñ(e,'["'..o.ò(l)..'"]')ñ(e,"=")Ü
 ä n(t)==úí
-ñ(e,©(t,o))Ö n(t)==£í
-ñ(e,a(t))Ö n(t)==πí
-ñ(e,∫..t..∫)Ñ
-ñ(e,r.ò(t))Ü
+ñ(e,©(t,r))Ö n(t)==£í
+ñ(e,a(t))Ö n(t)==∏í
+ñ(e,π..t..π)Ñ
+ñ(e,o.ò(t))Ü
 ñ(e,",")Ü
-ñ(e,"}")ë ∑(e)Ü
-â ∏(e)ä n(e)~=úí
-r.∏(e)Ñ
-r.∏(ò(e))Ü
+ñ(e,"}")ë æ(e)Ü
+â ∑(e)ä n(e)~=úí
+o.∑(e)Ñ
+o.∑(ò(e))Ü
 Ü
-Ü)ù.ü['sllib.time']=(â(...)÷("time",ù.seeall)â ø()ë û.ø()Ü
-â Ø()ë û.Ø()Ü
-â millitime()ë µ.∆(ˆ.gettime()*1e3)Ü
+Ü)ù.û['sllib.time']=(â(...)÷("time",ù.seeall)â ø()ë ü.ø()Ü
+â Æ()ë ü.Æ()Ü
+â millitime()ë µ.«(Ù.gettime()*1e3)Ü
 â sleep(e)e=e è 0
-û.±("ping -n "..Ê(e+1).." localhost > NUL")Ü
+ü.Ø("ping -n "..Ê(e+1).." localhost > NUL")Ü
 â millisleep(e)ô"socket"e=e è 0
-ˆ.sleep(e/1e3)Ü
-â getStr(n,e)n=n è'%c'e=e è û.ø()ë û. (n,e)Ü
-â getEndOfDay()å e=û.ø()å e=û. ('*t',e)å e=û. ('*t',û.ø({Ú=e["year"],›=e["month"],day=e["day"],Ô=23,min=59,sec=59}))å e=û.ø(e)ë e
+Ù.sleep(e/1e3)Ü
+â getStr(n,e)n=n è'%c'e=e è ü.ø()ë ü.ƒ(n,e)Ü
+â getEndOfDay()å e=ü.ø()å e=ü.ƒ('*t',e)å e=ü.ƒ('*t',ü.ø({Ó=e["year"],ﬂ=e["month"],day=e["day"],=23,min=59,sec=59}))å e=ü.ø(e)ë e
 Ü
-â splitTime(e)å t=µ.∆(e/3600)å n=µ.∆(µ.Ò(e,3600)/60)å e=µ.Ò(e,60)ë{Ô=t,min=n,sec=e}Ü
-Ü)rawset(_G,"SLLIB_VERSION","1.1")ô“ô—ô"sllib.os_ext"ô¡ô"sllib.string_ext"ô"sllib.debug_ext"ô"sllib.time"ô"sllib.logs"ô"sllib.class"enum=õ.˜
-â …(e)ä ¶(e)==πí
-ë∫..e..∫Ö ¶(e)==úí
+â splitTime(e)å t=µ.«(e/3600)å n=µ.«(µ.Ì(e,3600)/60)å e=µ.Ì(e,60)ë{=t,min=n,sec=e}Ü
+Ü)rawset(_G,"SLLIB_VERSION","1.1")ô—ô”ô"sllib.os_ext"ô¡ô"sllib.string_ext"ô"sllib.debug_ext"ô"sllib.time"ô"sllib.logs"ô"sllib.class"enum=õ.˜
+â œ(e)ä ¶(e)==∏í
+ëπ..e..πÖ ¶(e)==úí
 ë õ.ò(e)Ö ¶(e)==£í
 ë †(e)Ñ
 å e=ò(e)è¿ë e
