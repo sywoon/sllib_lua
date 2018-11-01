@@ -17,6 +17,14 @@ function empty(t)
 	return next(t) == nil
 end
 
+function keys(t)
+	local u = {}
+	for k, _ in pairs(t or {}) do
+		insert(u, k)
+	end
+	return u
+end
+
 function values(t)
 	local u = {}
 	for _, v in pairs(t or {}) do
