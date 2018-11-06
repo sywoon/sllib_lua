@@ -1,4 +1,5 @@
 require "sllib_base"
+--require "sllib"
 
 print("version", SLLIB_VERSION)
 
@@ -53,6 +54,23 @@ print(string.strtox16("abcd"))
 
 ---time
 print(time.getStr("%c"))
+
+
+---list
+local info = {}
+table.insert(info, {name="a", age=10})
+table.insert(info, {name="b", age=20})
+table.print(list.project(info, "name"))
+
+
+
+
+
+
+
+
+
+
 
 
 

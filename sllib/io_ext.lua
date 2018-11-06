@@ -42,7 +42,24 @@ function io.fileSize(path)
 end
 
 
+function io.readJsonFile(path)
+	local text = io.readFile(path)
+	if nil == text or text == "" then
+		return nil
+	end
 
+	local json = require "json"
+	local data = json.decode(text)
+	return data
+end
+
+function io.writeJsonFile(path, data)
+	local dir = os.dirname(path)
+	os.mkdir(dir)
+
+	local json = require "json"
+	io.writeFile(path, json.encode(data))
+end
 
 
 

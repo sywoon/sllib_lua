@@ -13,6 +13,7 @@ Module "sllib.os_ext" "os_ext.lua"
 Module "sllib.profiler" "profiler.lua"
 Module "sllib.string_ext" "string_ext.lua"
 Module "sllib.table_ext" "table_ext.lua"
+Module "sllib.list_ext" "list_ext.lua"
 Module "sllib.time" "time.lua"
 
 Main "init.lua"

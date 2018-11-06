@@ -39,13 +39,26 @@ function os.mkpredir(path)
 end
 
 --only windows
-function os.rmdir(path)
+function os.rmdir(path, verbose)
+    path = string.gsub(path, "/", "\\")
+	if string.sub(path, -1, -1) == "\\" then
+		path = string.sub(path, 1, -2)
+	end
+	
 	if not os.isdir(path) then
+        if verbose then
+            print("os.rmdir error:not dir:" .. path)
+        end
 		return
 	end
 	
-	path = string.gsub(path, "/", "\\")
-	local cmd = "rd /S /Q " .. path .. " 1>nul 2>nul"
+	local cmd
+	if verbose then
+        cmd = "rd /S /Q " .. path
+	else
+        cmd = "rd /S /Q " .. path .. " 1>nul 2>nul"
+	end
+	
 	return os.execute(cmd)
 	--linux
 	--rm -rf path
@@ -65,7 +78,12 @@ function os.copydir(oldpath, newpath, verbose)
 	newpath = string.gsub(newpath, "/", "\\")
 	os.mkpredir(newpath)
 
-	local cmd = "xcopy /Y /E /I /Q " .. oldpath .. " " .. newpath .. " 1>nul 2>nul"
+	local cmd
+	if verbose then
+        cmd = "xcopy /Y /E /I /Q " .. oldpath .. " " .. newpath
+    else
+        cmd = "xcopy /Y /E /I /Q " .. oldpath .. " " .. newpath .. " 1>nul 2>nul"
+	end
 
 	if verbose == true then
 		verbose = print
@@ -108,6 +126,10 @@ end
 
 
 function os.dir(path, depth, filter)
+    if string.sub(path, -1, -1) == "/" then
+        path = string.sub(path, 1, -2)
+    end
+    
 	local max = 30
 	if type(depth) == "boolean" then
 		depth = depth == false and 1 or max
@@ -216,7 +238,7 @@ end
 --得到剩余路径和最后一个文件夹  <==> dirname + basename
 function os.splitpath(filepath)
 	filepath = string.gsub(filepath, "\\", "/")
-	if filepath[#filepath] == "/" then
+	if string.sub(filepath, -1, -1) == "/" then
 		filepath = string.sub(filepath, 1, -2)
 	end
 	return pl.path.splitpath(filepath)
