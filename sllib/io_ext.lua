@@ -59,10 +59,35 @@ function io.writeJsonFile(path, data)
 
 	local json = require "json"
 	io.writeFile(path, json.encode(data))
+	return true
 end
 
+function io.readLuaFile(path)
+	local text = io.readFile(path)
+	if nil == text then
+		return nil
+	end
 
+	local data = loadstring(text)()
+	return data
+end
 
+function io.writeLuaFile(path, data)
+	local dir = os.dirname(path)
+	os.mkdir(dir)
+
+	if nil == table.tostring then
+		return false
+	end
+
+	local text = table.tostring(data)
+	if nil == text then
+		return false
+	end
+
+	io.writeFile(path, text)
+	return true
+end
 
 
 
