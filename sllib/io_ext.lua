@@ -48,7 +48,7 @@ function io.readJsonFile(path)
 		return nil
 	end
 
-	local json = require "json"
+	local json = require "cjson" or require "json"
 	local data = json.decode(text)
 	return data
 end
@@ -57,7 +57,7 @@ function io.writeJsonFile(path, data)
 	local dir = os.dirname(path)
 	os.mkdir(dir)
 
-	local json = require "json"
+	local json = require "cjson" or require "json"
 	io.writeFile(path, json.encode(data))
 	return true
 end
