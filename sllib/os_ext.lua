@@ -159,10 +159,10 @@ function os.dir(path, depth, filter)
 					else
 						table.insert(files, path)
 					end
-				end
-
-				if isFolder and depth > 0 then
-					_dir(path, depth)
+					
+					if isFolder and depth > 0 then
+                        _dir(path, depth)
+                    end
 				end
 			end
 		end
