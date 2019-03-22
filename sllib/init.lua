@@ -1,8 +1,15 @@
---×¢Òâ»áÌæ»»tostring¹¦ÄÜ Ö§³Ötable×ª»»
---Ô­ÏÈÊä³öµØÖ·µÄ ±ä³É_tostring
---require "std"  --»ìÏıºó»á±¨´í
+--æ³¨æ„ä¼šæ›¿æ¢tostringåŠŸèƒ½ æ”¯æŒtableè½¬æ¢
+--åŸå…ˆè¾“å‡ºåœ°å€çš„ å˜æˆ_tostring
+--require "std"  --æ··æ·†åä¼šæŠ¥é”™
 
 rawset(_G, "SLLIB_VERSION", "1.1")
+
+--------------------------------
+-- support lua5.2 5.3
+loadstring = loadstring or load
+unpack = unpack or table.unpack
+--
+--------------------------------
 
 require "sllib.global"
 require "sllib.io_ext"

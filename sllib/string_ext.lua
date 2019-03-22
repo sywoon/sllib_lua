@@ -12,7 +12,7 @@ function string.x16tostr(buff)
 	end)
 end
 
---´òÓ¡³ö16½øÖÆÄÚÈİ
+--æ‰“å°å‡º16è¿›åˆ¶å†…å®¹
 function string.dumpex(buff)
 	return string.gsub(buff, ".", function(c)
 		return string.format("%02X ",string.byte(c))
@@ -21,7 +21,7 @@ end
 
 function string.iterateString(str, flag, call)
 	flag = flag or '\n'
-	--Ö»ÓĞÒ»ĞĞÊı¾İ
+	--åªæœ‰ä¸€è¡Œæ•°æ®
 	if not string.match(str, flag) then
 		call(str)
 		return
@@ -42,7 +42,7 @@ function string.iterateString(str, flag, call)
 	end
 end
 
--- std¿â ÓĞbug ÓĞÊ±»á¶àÒ»¸ö¿Õtable
+-- stdåº“ æœ‰bug æœ‰æ—¶ä¼šå¤šä¸€ä¸ªç©ºtable
 function string.split(text, delim)
 	local start = 1
 	local ends = 1

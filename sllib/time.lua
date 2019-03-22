@@ -1,11 +1,11 @@
 module("time", package.seeall)
 
---¾«È·µ½1Ãë
+--ç²¾ç¡®åˆ°1ç§’
 function time()
     return os.time()
 end
 
---¾«È·µ½0.01Ãë
+--ç²¾ç¡®åˆ°0.01ç§’
 function clock()
     return os.clock()
 end
@@ -14,7 +14,7 @@ function millitime()
     return math.modf(socket.gettime() * 1000)
 end
 
-function sleep(n)  --Ãë
+function sleep(n)  --ç§’
     n = n or 0
     os.execute("ping -n " .. tonumber(n+1) .. " localhost > NUL")
     
@@ -22,7 +22,7 @@ function sleep(n)  --Ãë
     -- os.execute("sleep" .. n)
 end
 
-function millisleep(n) --ºÁÃë
+function millisleep(n) --æ¯«ç§’
     require "socket"
     n = n or 0
     --socket.select(nil, nil, n / 1000)
@@ -31,31 +31,31 @@ end
 
 
 
---¡¡%a ĞÇÆÚ¼¸µÄ¼òĞ´ abbreviated weekday:Sun
---¡¡%A ĞÇÆÚ¼¸µÄÈ«³Æ full weekday:Sunday
---¡¡%b ÔÂ·İµÄ¼òĞ´ abbreviated month:Jul
---¡¡%B ÔÂ·İµÄÈ«³Æ full month:July
---¡¡%c ±ê×¼µÄÈÕÆÚµÄÊ±¼ä´® date and time:07/27/14 17:42:09
---¡¡%d Ê®½øÖÆ±íÊ¾µÄÃ¿ÔÂµÄµÚ¼¸Ìì date of the month:27
---¡¡%H 24Ğ¡Ê±ÖÆµÄĞ¡Ê± hour 24-hour[00-23]:17
---¡¡%I 12Ğ¡Ê±ÖÆµÄĞ¡Ê± hour 12-hour[01-12]:05
---¡¡%j Ê®½øÖÆ±íÊ¾µÄÃ¿ÄêµÄµÚ¼¸Ìì day of year:115
---¡¡%m Ê®½øÖÆ±íÊ¾µÄÔÂ·İ month [01-12]:07
---¡¡%M Ê®Ê±ÖÆ±íÊ¾µÄ·ÖÖÓÊı minute [00-59]:42
---¡¡%p ±¾µØµÄAM»òPMµÄµÈ¼ÛÏÔÊ¾ AM or PM: AM
---¡¡%S Ê®½øÖÆµÄÃëÊı secound [00-61]:8
---¡¡%U µÚÄêµÄµÚ¼¸ÖÜ£¬°ÑĞÇÆÚÈÕ×÷ÎªµÚÒ»Ìì£¨Öµ´Ó0µ½53£© weak of year[0-48] from sunday:16
---¡¡%w Ê®½øÖÆ±íÊ¾µÄĞÇÆÚ¼¸£¨Öµ´Ó0µ½6£¬ĞÇÆÚÌìÎª0£© weekday [0-6=Sunday-Saturday]:0
---¡¡%W Ã¿ÄêµÄµÚ¼¸ÖÜ£¬°ÑĞÇÆÚÒ»×öÎªµÚÒ»Ìì£¨Öµ´Ó0µ½53£©weak of year[0-48] from monday:16
---¡¡%x ±ê×¼µÄÈÕÆÚ´® date:07/27/14
---¡¡%X ±ê×¼µÄÊ±¼ä´® time(00:00:00):17:42:09
---¡¡%y ²»´øÊÀ¼ÍµÄÊ®½øÖÆÄê·İ£¨Öµ´Ó0µ½99£© two-digit year(00-99):14
---¡¡%Y ´øÊÀ¼Í²¿·ÖµÄÊ®ÖÆÄê·İ full year:2018
---¡¡%z£¬%Z Ê±ÇøÃû³Æ£¬Èç¹û²»ÄÜµÃµ½Ê±ÇøÃû³ÆÔò·µ»Ø¿Õ×Ö·û¡£ time zone name:ÖĞ¹ú±ê×¼Ê±¼ä
---¡¡%% °Ù·ÖºÅ
+--ã€€%a æ˜ŸæœŸå‡ çš„ç®€å†™ abbreviated weekday:Sun
+--ã€€%A æ˜ŸæœŸå‡ çš„å…¨ç§° full weekday:Sunday
+--ã€€%b æœˆä»½çš„ç®€å†™ abbreviated month:Jul
+--ã€€%B æœˆä»½çš„å…¨ç§° full month:July
+--ã€€%c æ ‡å‡†çš„æ—¥æœŸçš„æ—¶é—´ä¸² date and time:07/27/14 17:42:09
+--ã€€%d åè¿›åˆ¶è¡¨ç¤ºçš„æ¯æœˆçš„ç¬¬å‡ å¤© date of the month:27
+--ã€€%H 24å°æ—¶åˆ¶çš„å°æ—¶ hour 24-hour[00-23]:17
+--ã€€%I 12å°æ—¶åˆ¶çš„å°æ—¶ hour 12-hour[01-12]:05
+--ã€€%j åè¿›åˆ¶è¡¨ç¤ºçš„æ¯å¹´çš„ç¬¬å‡ å¤© day of year:115
+--ã€€%m åè¿›åˆ¶è¡¨ç¤ºçš„æœˆä»½ month [01-12]:07
+--ã€€%M åæ—¶åˆ¶è¡¨ç¤ºçš„åˆ†é’Ÿæ•° minute [00-59]:42
+--ã€€%p æœ¬åœ°çš„AMæˆ–PMçš„ç­‰ä»·æ˜¾ç¤º AM or PM: AM
+--ã€€%S åè¿›åˆ¶çš„ç§’æ•° secound [00-61]:8
+--ã€€%U ç¬¬å¹´çš„ç¬¬å‡ å‘¨ï¼ŒæŠŠæ˜ŸæœŸæ—¥ä½œä¸ºç¬¬ä¸€å¤©ï¼ˆå€¼ä»0åˆ°53ï¼‰ weak of year[0-48] from sunday:16
+--ã€€%w åè¿›åˆ¶è¡¨ç¤ºçš„æ˜ŸæœŸå‡ ï¼ˆå€¼ä»0åˆ°6ï¼Œæ˜ŸæœŸå¤©ä¸º0ï¼‰ weekday [0-6=Sunday-Saturday]:0
+--ã€€%W æ¯å¹´çš„ç¬¬å‡ å‘¨ï¼ŒæŠŠæ˜ŸæœŸä¸€åšä¸ºç¬¬ä¸€å¤©ï¼ˆå€¼ä»0åˆ°53ï¼‰weak of year[0-48] from monday:16
+--ã€€%x æ ‡å‡†çš„æ—¥æœŸä¸² date:07/27/14
+--ã€€%X æ ‡å‡†çš„æ—¶é—´ä¸² time(00:00:00):17:42:09
+--ã€€%y ä¸å¸¦ä¸–çºªçš„åè¿›åˆ¶å¹´ä»½ï¼ˆå€¼ä»0åˆ°99ï¼‰ two-digit year(00-99):14
+--ã€€%Y å¸¦ä¸–çºªéƒ¨åˆ†çš„ååˆ¶å¹´ä»½ full year:2018
+--ã€€%zï¼Œ%Z æ—¶åŒºåç§°ï¼Œå¦‚æœä¸èƒ½å¾—åˆ°æ—¶åŒºåç§°åˆ™è¿”å›ç©ºå­—ç¬¦ã€‚ time zone name:ä¸­å›½æ ‡å‡†æ—¶é—´
+--ã€€%% ç™¾åˆ†å·
 
 
---È¡·şÎñÆ÷Ê±¼ä¸ñÊ½»¯×Ö´®,fmtStrÎ´Ìî£¬ÔòÈ¡Ä¬ÈÏ¸ñÊ½
+--å–æœåŠ¡å™¨æ—¶é—´æ ¼å¼åŒ–å­—ä¸²,fmtStræœªå¡«ï¼Œåˆ™å–é»˜è®¤æ ¼å¼
 function getStr(fmtStr, time)
 	fmtStr = fmtStr or '%c'
 	time = time or os.time()	
@@ -67,7 +67,7 @@ end
 --wday (weekday, Sunday is 1), yday (day of the year), and isdst (daylight saving flag, a boolean).
 
 
---È¡23:59:59Ê±¼ä
+--å–23:59:59æ—¶é—´
 function getEndOfDay()
     local time = os.time()
     local time_t = os.date('*t', time)

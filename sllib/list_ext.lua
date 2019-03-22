@@ -36,7 +36,7 @@ function remove(l, value)
   end
 end
 
---切割idx之后部分
+--鍒囧壊idx涔嬪悗閮ㄥ垎
 function cut(l, idx)
   local pre = {}
   local last = {}
