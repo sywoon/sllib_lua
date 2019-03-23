@@ -1,9 +1,11 @@
-require "sllib_base"
---require "sllib"
+--require "sllib_base"
+require "sllib"
 
 print("version", SLLIB_VERSION)
 
 table.print({11, 22})
+
+loadstring("print('loadstring')")()
 
 
 ----class
