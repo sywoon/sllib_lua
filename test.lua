@@ -1,5 +1,7 @@
---require "sllib_base"
-require "sllib"
+package.path = "./?;./?.lua;?/init.lua"
+
+require "sllib_base"
+--require "sllib"
 
 print("version", SLLIB_VERSION)
 
@@ -42,10 +44,10 @@ print(numbertostring(1234567890123456))
 
 
 ---log
-log("abc", 123, {a=1, b="s"})
-logw(123)
-logf("%s", "aaa")
-trace("%s", "bbb")
+log.i("abc", 123, {a=1, b="s"})
+log.w(123)
+log.f("%s", "aaa")
+log.trace("%s", "bbb")
 
 
 ---os_ext

@@ -1,86 +1,38 @@
-require "sllib.global"
-
-local _G = _G
-local pairs = pairs
-local ipairs = ipairs
-local type = type
-local string = string
-local next = next
-local setmetatable = setmetatable
-local getmetatable = getmetatable
-local numbertostring = numbertostring
 
 
-module("table")
-
-function empty(t)
-	return next(t) == nil
-end
-
-function keys(t)
-	local u = {}
-	for k, _ in pairs(t or {}) do
-		insert(u, k)
+--扩展变量值 内部使用
+--{{key = value}, ...}
+local function _initValue(t, data)
+	for k, v in pairs(data) do
+		t[k] = v
 	end
-	return u
 end
 
-function values(t)
-	local u = {}
-	for _, v in pairs(t or {}) do
-		insert(u, v)
+--扩展库函数
+--{
+--{"name1" = function},
+--{"name2" = function},
+--}
+local function _extend(t, data)
+	for k, v in pairs(data) do
+		t[k] = t[k] or v
 	end
-	return u
-end
-
-function invert(t)
-	local u = {}
-	for k, v in pairs(t or {}) do
-		u[v] = k
-	end
-	return u
-end
-
-function clone(t, nometa)
-	local u = {}
-	if not nometa then
-		setmetatable(u, getmetatable(t))
-	end
-
-	for k, v in pairs(t) do
-		u[k] = v
-	end
-	return u
-end
-
-function merge(...)
-    local r = {}
-    for _, t in ipairs({...}) do
-        for k, v in pairs(t) do
-            r[k] = v
-        end
-    end
-    return r
 end
 
 
-local function tableAddress(t)
-    local str
-    if _G._tostring then   --std库修改的
-    	str = _G._tostring(t)
-    else
-    	str = _G.tostring(t)
-    end
-    return string.gsub(str, "^table: ", "") or ""
-end
+local values = {
+	--table内重复的引用 只显示地址
+	__showInnerRef = false,
 
---table内重复的引用 只显示地址
-__showInnerRef = false
-function setShowInnerRef(v)
-	__showInnerRef = v
-end
+	--数字做为key 不建议这么用 会导致pairs ipairs混乱
+	__keyCanBeNum = true,
+}
+_initValue(table, values)
 
-local function getInnerRef(tbl)
+
+
+-- 内部同table用地址替换
+local function _getInnerRef(tbl)
 	if not __showInnerRef then
 		return {}
 	end
@@ -105,15 +57,12 @@ local function getInnerRef(tbl)
     return ref
 end
 
---数字做为key 不建议这么用 会导致pairs ipairs混乱
-__keyCanBeNum = false
-function setKeyCanBeNum(v)
-	__keyCanBeNum = v
-end
 
-function tostring(t, level, pre)
+local function tostring(t, level, pre)
+	local insert = table.insert
+	local concat = table.concat
 	local loaded = {}
-	local showAddress = getInnerRef(t)
+	local showAddress = _getInnerRef(t)
 	local function _tostring(t, level, pre)
 		level = level and (level - 1) or 30
 		if level < 0 then
@@ -209,7 +158,9 @@ end
 
 ---紧缩格式
 --限制数字key只能用于数组
-function tostringex(t, level)
+local function tostringex(t, level)
+    local insert = table.insert
+    local concat = table.concat
     level = level and (level - 1) or 10
 	if level < 0 then
 		return "..."
@@ -244,13 +195,82 @@ function tostringex(t, level)
 	return concat(strs)
 end
 
-function print(t)
-    if type(t) ~= "table" then
-        _G.print(t)
-    else
-        _G.print(tostring(t))
-    end
-end
+
+
+local data = {
+	["empty"] = function (t)
+		return next(t) == nil
+	end,
+
+	["keys"] = function (t)
+		local u = {}
+		for k, _ in pairs(t or {}) do
+			insert(u, k)
+		end
+		return u
+	end,
+
+	["values"] = function (t)
+		local u = {}
+		for _, v in pairs(t or {}) do
+			insert(u, v)
+		end
+		return u
+	end,
+
+	["invert"] = function (t)
+		local u = {}
+		for k, v in pairs(t or {}) do
+			u[v] = k
+		end
+		return u
+	end,
+
+	["clone"] = function (t, nometa)
+		local u = {}
+		if not nometa then
+			setmetatable(u, getmetatable(t))
+		end
+
+		for k, v in pairs(t) do
+			u[k] = v
+		end
+		return u
+	end,
+
+	["merge"] = function (...)
+		local r = {}
+		for _, t in ipairs({...}) do
+			for k, v in pairs(t) do
+				r[k] = v
+			end
+		end
+		return r
+	end,
+
+	["address"] = function (t)
+		local str
+		if rawget(_G, "_tostring") then  --std库修改的
+			str = _tostring(t)
+		else
+			str = tostring(t)
+		end
+		return string.gsub(str, "^table: ", "") or ""
+	end,
+
+	["tostring"] = tostring,
+	["tostringex"] = tostringex,
+
+	["print"] = function (t)
+		if type(t) ~= "table" then
+			_G.print(t)
+		else
+			_G.print(table.tostring(t))
+		end
+	end,
+}
+_extend(table, data)
+
 
 
 

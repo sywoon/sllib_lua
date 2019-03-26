@@ -1,5 +1,4 @@
-require "sllib.table_ext"
-require "sllib.io_ext"
+log = log or {}
 
 local any2str_quotation = true
 local function _any2str(value)
@@ -19,81 +18,67 @@ local function _any2str(value)
 	end
 end
 
-function log(...)
+function log.i(...)
 	for _, v in ipairs({...}) do
 		local str = _any2str(v)
-		logs.showLog(str)
+		log.showLog(str)
 	end
 end
 
 -- w for warn
-function logw(...)
+function log.w(...)
 	os.execute("echo. & color 0E")
 	for _, v in ipairs({...}) do
 		local str = _any2str(v)
-		logs.showLog(str)
+		log.showLog(str)
 	end
 end
 
 --e for error
-function loge(...)
+function log.e(...)
 	os.execute("echo. & color 0C")
-	log(...)
+	log.i(...)
 
     local last = any2str_quotation
     any2str_quotation = false
-    
     log(debug.traceback("", 2))
-    
     any2str_quotation = last
 end
 
-function logf(fmt, ...)
-	logs.showLog(string.format(fmt, ...))
+function log.f(fmt, ...)
+	log.showLog(string.format(fmt, ...))
 end
 
-function trace(fmt, ...)
+function log.trace(fmt, ...)
     fmt = fmt or "nil"
 	local logmsg = string.format(fmt, ...)
 	local tracemsg = debug.traceback(logmsg, 2)
-	logs.showLog(tracemsg)
-end
-
-function clearlog()
-	logs.clearLog()
+	log.showLog(tracemsg)
 end
 
 
-local os = os
-local string = string
-local print = print
-local io = io
-local DEBUG_TIME = false
-module("logs")
-
-local _filepath
-local function getLogPath()
-	if _filepath then
-		return _filepath
+function log.getLogPath()
+	if log._filepath then
+		return log._filepath
 	end
 
 	local date = os.date("*t")
 	local filename = string.format("%s_%s_%s.log",
 							date.year, date.month, date.day) 
-	_filepath = filename
+	log._filepath = filename
 	return filename
 end
 
-function setLogPath(filepath)
+function log.setLogPath(filepath)
 	_filepath = filepath
 end
 
-function writeLogFile(str)
-	local path = getLogPath()
+function log.writeLogFile(str)
+	local path = log.getLogPath()
 	io.writeFile(path, str, "a+")
 end
 
-function showLog(str)
+function log.showLog(str)
 	local date = os.date("*t")
 	local clock = os.clock()
 
@@ -109,11 +94,11 @@ function showLog(str)
 	end
 
 	print(msg)	
-	writeLogFile(msg)
-	writeLogFile('\n')
+	log.writeLogFile(msg)
+	log.writeLogFile('\n')
 end
 
-function clearLog()
+function log.clearLog()
 	local path = getLogPath()
 	if not os.exist(path) then
 		return
@@ -122,5 +107,5 @@ function clearLog()
 end
 
 
-
+return log
 

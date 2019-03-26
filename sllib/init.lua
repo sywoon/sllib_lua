@@ -20,7 +20,7 @@ require "sllib.list_ext"
 require "sllib.debug_ext"
 
 require "sllib.time"
-require "sllib.logs"
+require "sllib.log"
 require "sllib.class"
 
 enum = table.invert

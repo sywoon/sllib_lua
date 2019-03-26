@@ -1,88 +1,106 @@
-module ("list", package.seeall)
+list = list or {}
 
 
---- Append an item to a list.
--- @param l list
--- @param x item
--- @return <code>{l[1], ..., l[#l], x}</code>
-function append(l, x)
-  local r = {unpack (l)}
-  table.insert(r, x)
-  return r
-end
-
---- Concatenate lists.
--- @param ... lists
--- @return <code>{l<sub>1</sub>[1], ...,
--- l<sub>1</sub>[#l<sub>1</sub>], ..., l<sub>n</sub>[1], ...,
--- l<sub>n</sub>[#l<sub>n</sub>]}</code>
-function concat(...)
-  local r = {}
-  for _, l in ipairs ({...}) do
-    for _, v in ipairs (l) do
-      table.insert(r, v)
-    end
-  end
-  return r
+--扩展库函数
+--{
+--{"name1" = function},
+--{"name2" = function},
+--}
+local function _extend(t, data)
+	for k, v in pairs(data) do
+		t[k] = t[k] or v
+	end
 end
 
 
-function remove(l, value)
-  for idx, v in ipairs(l) do
-    if v == value then
-      table.remove(l, idx)
-      break
-    end
-  end
-end
 
---切割idx之后部分
-function cut(l, idx)
-  local pre = {}
-  local last = {}
-  for i = 1, idx do
-    table.insert(pre, l[i])
-  end
 
-  for j = idx+1, #l do
-    table.insert(last, l[j])
-  end
-  return pre, last
-end
+local data = {
+	--- Append an item to a list.
+	-- @param x item
+	-- @return <code>{l[1], ..., l[#l], x}</code>
+	["append"] = function (l, x)
+		table.insert(l, x)
+		return l
+	end,
 
-function sub(l, from, to)
-  to = to or #l
-  local t = {}
-  for i = from, to do
-    table.insert(t, l[i])
-  end
-  return t
-end
+	--- Concatenate lists.
+	-- @param ... lists
+	["concat"] = function (...)
+		local r = {}
+		for _, l in ipairs ({...}) do
+			for _, v in ipairs (l) do
+				table.insert(r, v)
+			end
+		end
+		return r
+	end,
 
-function exist(l, value)
-  for _, v in ipairs(l) do
-    if v == value then
-      return true
-    end
-  end
-  return false
-end
+	["remove"] = function (l, value)
+		for idx, v in ipairs(l) do
+			if v == value then
+				table.remove(l, idx)
+				break
+			end
+		end
+		return l
+	end,
 
---{a, b} => {a=a, b=b}
-function mirror(l)
-  local t = {}
-  for _, l in ipairs(l) do
-    t[l] = l
-  end
-  return t
-end
+	["sub"] = function (l, from, to)
+		to = to or #l
+		local t = {}
+		for i = from, to do
+			table.insert(t, l[i])
+		end
+		return t
+	end,
 
--- {{name="a",age=1},{name="b",age=2},}
--- => {a = {name="a",age=1}, b = {name="b",age=2}}
-function project(l, field)
-  local t = {}
-  for _, info in ipairs(l) do
-    t[info[field]] = info
-  end
-  return t
-end
+	--按idx的位置切割为两个list  idx位置上的元素属于前面list
+	["cut"] = function (l, idx)
+		local pre = list.sub(1, idx)
+		local last = list.sub(idx+1)
+		return pre, last
+	end,
+
+	["exist"] = function (l, value)
+		for _, v in ipairs(l) do
+			if v == value then
+				return true
+			end
+		end
+		return false
+	end,
+
+	["reverse"] = function (l)
+		local t = {}
+		for i = #l, 1, -1 do
+			table.insert(t, l[i])
+		end
+		return t
+	end,
+
+	--{a, b} => {a=a, b=b}
+	["mirror"] = function (l)
+		local t = {}
+		for _, l in ipairs(l) do
+			t[l] = l
+		end
+		return t
+	end,
+
+	-- list to map by key
+	-- {{name="a",age=1},{name="b",age=2},}
+	-- => {a = {name="a",age=1}, b = {name="b",age=2}}
+	["project"] = function (l, field)
+		local t = {}
+		for _, info in ipairs(l) do
+			t[info[field]] = info
+		end
+		return t
+	end,
+}
+_extend(list, data)
+
+
+
+
