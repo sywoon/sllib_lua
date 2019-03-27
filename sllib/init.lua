@@ -20,7 +20,7 @@ require "sllib.list_ext"
 require "sllib.debug_ext"
 
 require "sllib.time"
-require "sllib.log"
+require "sllib.logs"
 require "sllib.class"
 
 enum = table.invert
@@ -37,4 +37,15 @@ function any2str(value)
 		return str
 	end
 end
+
+--保留旧版接口
+log = log or logs.i
+logw = logw or logs.w
+loge = loge or logs.e
+trace = trace or logs.trace
+clearLog = clearLog or logs.clear
+
+
+
+
 
