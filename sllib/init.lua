@@ -4,12 +4,7 @@
 
 rawset(_G, "SLLIB_VERSION", "1.1")
 
---------------------------------
--- support lua5.2 5.3
-loadstring = loadstring or load
-unpack = unpack or table.unpack
---
---------------------------------
+
 
 require "sllib.global"
 require "sllib.io_ext"
@@ -23,7 +18,23 @@ require "sllib.time"
 require "sllib.logs"
 require "sllib.class"
 
+
 enum = table.invert
+
+--保留旧版接口
+log = log or logs.i
+logw = logw or logs.w
+loge = loge or logs.e
+trace = trace or logs.trace
+clearLog = clearLog or logs.clear
+
+--------------------------------
+-- support lua5.2 5.3
+unpack = unpack or table.unpack
+loadstring = loadstring or load
+--
+--------------------------------
+
 
 function any2str(value)
 	if type(value) == "string" then
@@ -37,15 +48,5 @@ function any2str(value)
 		return str
 	end
 end
-
---保留旧版接口
-log = log or logs.i
-logw = logw or logs.w
-loge = loge or logs.e
-trace = trace or logs.trace
-clearLog = clearLog or logs.clear
-
-
-
 
 

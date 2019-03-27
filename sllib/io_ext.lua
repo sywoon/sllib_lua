@@ -68,7 +68,8 @@ function io.readLuaFile(path)
 		return nil
 	end
 
-	local data = loadstring(text)()
+	local call = loadstring or load
+	local data = call(text)()
 	return data
 end
 
