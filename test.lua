@@ -9,8 +9,8 @@ require "sllib"
 
 print("version", SLLIB_VERSION)
 
-table.print({11, 22})
 
+-- extend
 loadstring("print('loadstring')")()
 
 
@@ -20,14 +20,24 @@ function A:ctor(...)
     print("A init", ...)
 end
 
+function A:show()
+	print("show A")
+end
+
 local B = A:subclass()
 function B:ctor(...)
 	self:super():ctor(...)
 	print("B init", ...)
 end
 
+function B:show()
+	print("show B")
+end
+
 local a = A:new("aa")
 local b = B:new("bb")
+a:show()
+b:show()
 
 
 ----debug_ext
@@ -39,6 +49,7 @@ testDebug(2, 3)
 
 
 ---global
+print(any2str({a=1, b="b", c={11, 22}}))
 print(numbertostring(1234567890123456))
 
 ---io 
@@ -56,13 +67,37 @@ logs.trace("%d %s", 99, "bbb")
 
 
 ---os_ext
-table.print(os.dir("."))
+print("----\n")
+local cur = os.currentdir()
+print(cur)
+
+print(os.isdir(cur))
+print(os.isfile(cur .. "/test.lua"))
+print(os.filesize(cur .. "/test.lua"))
+print(os.splitpath(cur))
+table.print(os.splitpathex(cur))
+print(os.dirname(cur))
+print(os.dirname(cur .. "/test.lua"))
+print(os.basename(cur))
+print(os.basename(cur .. "/test.lua"))
+
+os.rmdir("01")
+os.rmdir("001")
+os.mkdir("01/02/03/04")
+os.newfile("01/02/aa.txt")
+--os.copydir("01/02/", "001/002", true)
+--os.movefile("01/02/aa.txt", "001/002", true)
+local files, folders = os.dir("01", true)
+table.print(files)
+table.print(folders)
+os.rmdir("01")
+
 
 ---string_ext
 print(string.strtox16("abcd"))
 
 ---time
-print(time.getStr("%c"))
+print(time.getstr("%c"))
 
 
 ---list

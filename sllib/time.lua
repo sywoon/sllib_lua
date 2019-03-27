@@ -25,6 +25,7 @@ local data = {
 
 	--毫秒级别 需要luasocket库
 	["millitime"] = function ()
+        require "socket.core"
 		return math.modf(socket.gettime() * 1000)
 	end,
 
@@ -60,7 +61,7 @@ local data = {
 	--　%% 百分号
 
 	--取服务器时间格式化字串,fmtStr未填，则取默认格式
-	["getStr"] = function (fmtStr, time)
+	["getstr"] = function (fmtStr, time)
 		fmtStr = fmtStr or '%c'
 		time = time or os.time()	
 		return os.date(fmtStr, time)
@@ -69,8 +70,8 @@ local data = {
 	--year (four digits), month (1--12), day (1--31), hour (0--23), min (0--59), sec (0--61), 
 	--wday (weekday, Sunday is 1), yday (day of the year), and isdst (daylight saving flag, a boolean).
 	--取当天23:59:59时间 对应的时间戳
-	["getEndOfDay"] = function ()
-		local time = os.time()
+	["getendofday"] = function (time)
+		time = time or os.time()
 		local time_t = os.date('*t', time)
 		local time_t_end = os.date('*t', os.time({
 						year=time_t["year"], 
@@ -82,7 +83,7 @@ local data = {
 	end,
 
 	-- 秒 转为具体的 时分秒  一般用于倒计时
-	["toHour"] = function (time)
+	["tohour"] = function (time)
 		local hour = math.modf(time / 3600)
 		local min = math.modf( math.fmod(time, 3600) / 60 )
 		local sec = math.fmod(time, 60)
