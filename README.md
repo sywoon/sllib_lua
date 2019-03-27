@@ -1,7 +1,7 @@
 # sllib_lua v1.1
 * Extending the default library for Lua
 * squish all files to sllib_base.lua 
-* confuse+merge[lua squish](https://github.com/sywoon/lua_squish)
+* confuse+merge [lua squish](https://github.com/sywoon/lua_squish)
 
 
 # exam
@@ -64,7 +64,7 @@ table.tostringex(t, level)
 table.print(t)
 ```
 
-#list
+## list
 ```
 list.append(l, x)
 list.concat(...)
