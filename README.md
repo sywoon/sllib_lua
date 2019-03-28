@@ -53,6 +53,7 @@ debug.tracevalue(level, deep)
 ## table
 ```
 table.empty(t)
+table.size(t)
 table.keys(t)
 table.values(t)
 table.invert(t)

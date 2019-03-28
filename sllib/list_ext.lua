@@ -87,6 +87,13 @@ local data = {
 		end
 		return t
 	end,
+	
+	--del duplicate
+	["merge"] = function (...)
+        local r = list.concat(...)
+        r = table.invert(r)
+		return table.keys(r)
+	end,
 
 	-- list to map by key
 	-- {{name="a",age=1},{name="b",age=2},}

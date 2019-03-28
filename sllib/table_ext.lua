@@ -201,11 +201,19 @@ local data = {
 	["empty"] = function (t)
 		return next(t) == nil
 	end,
+	
+	["size"] = function (t)
+        local n = 0
+        for k, v in pairs(t) do
+            n = n + 1
+        end
+        return n
+	end,
 
 	["keys"] = function (t)
 		local u = {}
 		for k, _ in pairs(t or {}) do
-			insert(u, k)
+			table.insert(u, k)
 		end
 		return u
 	end,
@@ -213,7 +221,7 @@ local data = {
 	["values"] = function (t)
 		local u = {}
 		for _, v in pairs(t or {}) do
-			insert(u, v)
+			table.insert(u, v)
 		end
 		return u
 	end,
