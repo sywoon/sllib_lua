@@ -170,7 +170,7 @@ end
 --复制 移动往往要求上级文件夹要存在 本身文件夹又不能存在
 function os.mkpredir(path)
 	path = _fixPath(path)
-	
+
 	local prepath = os.dirname(path)
 	if prepath and prepath ~= "" then
 		return os.mkdir(prepath)
@@ -274,7 +274,8 @@ function os.copydir(oldpath, newpath, verbose)
 	--return pl.dir.clonetree(oldpath, newpath, pl.dir.copyfile)
 end
 
---os.copyfile("aa/1.txt", "bb/cc") -> aa + bb/cc/1.txt
+--os.copyfile("aa/1.txt", "bb/cc") -> aa/1.txt + bb/cc/1.txt
+--os.copyfile("aa/1.txt", "bb/cc/2.txt") -> aa/1.txt + bb/cc/2.txt
 --文件全路径 +　新文件夹路径
 --copy /Y %~dp0\misc\interface.json assets
 --xcopy /s /y %~dp0\misc\GCloudVoice\*.* assets\GCloudVoice\
