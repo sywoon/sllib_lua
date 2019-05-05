@@ -1,4 +1,4 @@
-# sllib_lua v1.1
+# sllib_lua v1.1.2
 * Extending the default library for Lua
 * squish all files to sllib_base.lua 
 * confuse+merge [lua squish](https://github.com/sywoon/lua_squish)
