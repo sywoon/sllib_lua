@@ -57,28 +57,33 @@ end
 --  ["mode"] = "directory",
 --}
 function os.filetime(path)
+	path = _fixPath(path)
 	local info = lfs.attributes(path)
 	return info and info.modification or 0
 end
 
 function os.isdir(path)
+	path = _fixPath(path)
 	local t = lfs.attributes(path)
 	return t and t.mode == "directory"
 end
 
 function os.isfile(path)
+	path = _fixPath(path)
 	local t = lfs.attributes(path)
 	return t and t.mode == "file"
 end
 
 --存在文件或文件夹 
 function os.exist(path)
+	path = _fixPath(path)
 	local t = lfs.attributes(path)
 	return nil ~= t
 end
 
 
 function os.filesize(path)
+	path = _fixPath(path)
 	local t = lfs.attributes(path)
 	return t.size
 end
@@ -146,6 +151,7 @@ end
 -- 会按层级一路创建下去
 function os.mkdir(path)
 	path = _fixPath(path)
+
 	local dirs = os.splitpathex(path)
 	local folderPath = ""
 	for i = 1, #dirs do
@@ -164,6 +170,7 @@ end
 --复制 移动往往要求上级文件夹要存在 本身文件夹又不能存在
 function os.mkpredir(path)
 	path = _fixPath(path)
+	
 	local prepath = os.dirname(path)
 	if prepath and prepath ~= "" then
 		return os.mkdir(prepath)
@@ -194,6 +201,7 @@ function os.rmdir(path, verbose)
 	end
 	if verbose then verbose(cmd) end
 	return os.execute(cmd)
+
 	--linux
 	--rm -rf path
 	
@@ -201,24 +209,37 @@ function os.rmdir(path, verbose)
 	--return lfs.rmdir(path)  
 end
 
---os.movedir("aa/bb", "cc/dd")  -> aa + cc/dd/bb
---移动oldpath(包含自己 ) 到newpath下面
-function os.movedir(oldpath, newpath)
+--os.movedir("aa/bb", "cc/dd", false)  -> aa + cc/dd
+--os.movedir("aa/bb", "cc/dd", true)  -> aa + cc/dd/bb
+--移动oldpath(可以包含自己) 到newpath下面
+-- 模仿 move /Y temp_imgs\anim assets\res -> temp_imgs + assets\res\anim
+function os.movedir(oldpath, newpath, includeSelf)
+	if nil == includeSelf then
+		includeSelf = true
+	end
+
 	oldpath = _fixPath(oldpath)
 	newpath = _fixPath(newpath)
 
 	--让移动的文件夹 包含目标自己
-	local folder = os.basename(oldpath)
-	newpath = newpath .. "/" .. folder
+	if includeSelf then
+		local folder = os.basename(oldpath)
+		newpath = newpath .. "/" .. folder
+	end
 
 	os.mkpredir(newpath)
-	return os.rename(oldpath, newpath)
+	local rtn, err = os.rename(oldpath, newpath)
+	if not rtn then
+		print("movedir failed", oldpath, newpath)
+	end
+	return rtn
 end
 
 
---os.copyfile("aa/bb", "cc/dd")  -> aa + cc/dd/bb
--- oldpath内的内容(包含自己) 复制到newpath下面
+--os.copydir("aa/bb", "cc/dd")  -> aa/bb + cc/dd/  本身不动 内部内容移动
+-- oldpath内的内容(不包含自己) 复制到newpath下面
 --only windows
+-- 模仿 xcopy /s /y %SRC%\src\*.* %DST%\src\
 function os.copydir(oldpath, newpath, verbose)
 	oldpath = _fixPath(oldpath)
 	newpath = _fixPath(newpath)
@@ -227,10 +248,10 @@ function os.copydir(oldpath, newpath, verbose)
 		return false
 	end
 
-	--让复制的文件夹 包含目标自己
-	local folder = os.basename(oldpath)
-	newpath = newpath .. "/" .. folder
-	os.mkpredir(newpath)
+	--让复制的文件夹 包含目标自己  废弃:为了和xcopy命令效果一致
+	-- local folder = os.basename(oldpath)
+	-- newpath = newpath .. "/" .. folder
+	-- os.mkpredir(newpath)
 
 	--window 需要
 	oldpath = string.gsub(oldpath, "/", "\\")
@@ -259,7 +280,7 @@ end
 --xcopy /s /y %~dp0\misc\GCloudVoice\*.* assets\GCloudVoice\
 --only windows
 function os.copyfile(oldpath, newpath, verbose)
-	os.mkdir(newpath)
+	os.mkpredir(newpath)
 
 	--window 需要
 	oldpath = string.gsub(oldpath, "/", "\\")
