@@ -94,6 +94,14 @@ local data = {
         r = table.invert(r)
 		return table.keys(r)
 	end,
+	
+	-- {{id=1,sex=1,name="a"}, {id=2,sex=2,name="b"}, {id=1,sex=2,name="a"}}
+    -- select id as key  => {{id=1,sex=1,name="a"}, {id=2,sex=2,name="b"}}
+	["mergeex"] = function (field, ...)
+        local r = list.concat(...)
+        r = list.project(r, field)
+        return table.values(r)
+	end,
 
 	-- list to map by key
 	-- {{name="a",age=1},{name="b",age=2},}

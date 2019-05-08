@@ -105,9 +105,8 @@ local info = {}
 table.insert(info, {name="a", age=10})
 table.insert(info, {name="b", age=20})
 table.print(list.project(info, "name"))
-
-
-
+table.print(list.merge({2,3}, {2,3,4}, {3,3,4}))
+table.print(list.mergeex("id", {{id=1,sex=1,name="a"}, {id=2,sex=2,name="b"}, {id=1,sex=2,name="a"}}))
 
 
 
