@@ -49,7 +49,7 @@ function Profiler:stop(mode)
             break
         end
 
-        local str = string.format("time:%6.3f, percet:%.2f%%, count:%d, %s", 
+        local str = string.format("time:%6.3f, percent:%.2f%%, count:%d, %s", 
 						report.totaltime, percent, 
                         report.callcount, report.title)
 		self.logFunc(str)
@@ -113,10 +113,12 @@ function Profiler:profilingHandler(hooktype)
     end
 
     local funcinfo = debug.getinfo(self.level, 'nS')
-    if hooktype == "call" then
-        _profilingCall(funcinfo)
-    elseif hooktype == "return" then
-        _profilingReturn(funcinfo)
+    if funcinfo then
+        if hooktype == "call" then
+            _profilingCall(funcinfo)
+        elseif hooktype == "return" then
+            _profilingReturn(funcinfo)
+        end
     end
 end
 
