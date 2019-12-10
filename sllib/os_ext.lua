@@ -143,6 +143,17 @@ function os.basename(path)
 	return file
 end
 
+-- d:/01/1.txt => 1   .txt
+-- d:/01/02 => 02   nil
+function os.filename(path)
+    local baseName = os.basename(path)
+	local fileName, ext = string.match(baseName, "^(.*)%.(%w*)$")
+	if fileName then
+		return fileName, ext
+	end
+	return baseName  --没有扩展名
+end
+
 -- c:/aa/bb/1.txt => .txt
 function os.extension(filepath)
 	return string.match(filepath, "%.%w*$")
