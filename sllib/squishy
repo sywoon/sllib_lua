@@ -15,6 +15,7 @@ Module "sllib.string_ext" "string_ext.lua"
 Module "sllib.table_ext" "table_ext.lua"
 Module "sllib.list_ext" "list_ext.lua"
 Module "sllib.time" "time.lua"
+Module "sllib.math_ext" "math_ext.lua"
 
 Main "init.lua"
 

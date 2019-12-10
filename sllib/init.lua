@@ -26,6 +26,7 @@ enum = table.invert
 log = log or logs.i
 logw = logw or logs.w
 loge = loge or logs.e
+logf = logf or logs.f
 trace = trace or logs.trace
 clearLog = clearLog or logs.clear
 
