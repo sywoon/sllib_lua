@@ -12,6 +12,7 @@ require "sllib.os_ext"
 require "sllib.table_ext"
 require "sllib.string_ext"
 require "sllib.list_ext"
+require "sllib.math_ext"
 require "sllib.debug_ext"
 
 require "sllib.time"
