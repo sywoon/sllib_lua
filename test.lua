@@ -67,7 +67,7 @@ table.print(os.dir("."))
 print(string.strtox16("abcd"))
 
 ---time
-print(time.getStr("%c"))
+print(time.getstr("%c"))
 
 
 
