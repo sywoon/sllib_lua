@@ -376,6 +376,22 @@ function os.dir(path, depth, filter)
 end
 
 
+-- extends = {".js", ".ts"} 文件后缀名
+function os.dirext(path, depth, extends)
+	local mapExt = table.invert(extends)
+
+	return os.dir(path, depth, function (path, isFolder)
+		if isFolder then
+			return true
+		end
+		local ext = os.extension(path)
+		if mapExt[ext] then
+			return true
+		end
+		return false
+	end)
+end
+
 
 
 
