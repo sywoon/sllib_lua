@@ -6,7 +6,7 @@ table.print({11, 22})
 
 
 ----class
-local A = Class("A")
+local A = class("A")
 function A:ctor(...)
     print("A init", ...)
     self.name = ...
@@ -16,13 +16,13 @@ function A:show()
     print(self.__name, self.name)
 end
 
-local B = Class("B", A)
+local B = class("B", A)
 function B:ctor(...)
     B.super.ctor(self, ...)
 	print("B init", ...)
 end
 
-local C = B:subClass("C")
+local C = class("C", B)
 function C:ctor(...)
     C.super.ctor(self, ...)
 	print("C init", ...)
