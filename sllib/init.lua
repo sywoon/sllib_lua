@@ -29,7 +29,7 @@ loge = loge or logs.e
 logf = logf or logs.f
 trace = trace or logs.trace
 clearLog = clearLog or logs.clear
-
+writeLogInFile = logs.writeInFile
 --------------------------------
 -- support lua5.2 5.3
 unpack = unpack or table.unpack

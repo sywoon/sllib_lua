@@ -2,6 +2,7 @@ logs = logs or {}
 
 local DEBUG_TIME = false
 local _filepath = nil
+local _bWriteFile = true
 
 
 --------------------------
@@ -38,6 +39,9 @@ end
 
 -- 更底层的控制 只添加新字符串
 local function _writeLogFile(str)
+    if not _bWriteFile then
+        return
+    end
 	local path = _getLogPath()
 	io.writeFile(path, str, "a+")
 end
@@ -58,13 +62,16 @@ local function _showLog(str)
 		msg = str
 	end
 
-	print(msg)	
+	print(msg)
 	_writeLogFile(msg)
 	_writeLogFile('\n')
 end
 
 --
 --------------------------
+function logs.writeInFile(value)
+    _bWriteFile = value
+end
 
 function logs.showLogTime(value)
 	DEBUG_TIME = value
