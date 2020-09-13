@@ -105,7 +105,7 @@ function logs.e(...)
 
     local last = any2str_quotation
     any2str_quotation = false
-    logs(debug.traceback("", 2))
+    _showLog(debug.traceback("", 2))
     any2str_quotation = last
 end
 

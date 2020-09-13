@@ -38,6 +38,18 @@ loadstring = loadstring or load
 --------------------------------
 
 
+--1 第一参数是函数 不限制绑定类成员函数
+--2 调用函数的参数 bind带入的在前面 因为这部分是确定的
+rawset(_G, "bind", function (func, ...)
+	local fix = {...}
+	assert(func, "bind params error")
+	return function (...)
+    	local datas = list.concat(fix, {...})
+		return func(unpack(datas))
+	end
+end)
+
+
 function any2str(value)
 	if type(value) == "string" then
 		return '"' .. value .. '"'

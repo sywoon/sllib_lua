@@ -57,6 +57,7 @@ print(numbertostring(1234567890123456))
 log("abc", 123, {a=1, b="s"})
 logw(123)
 logf("%s", "aaa")
+--loge("loge")
 trace("%s", "bbb")
 
 
@@ -69,5 +70,11 @@ print(string.strtox16("abcd"))
 ---time
 print(time.getstr("%c"))
 
+--bind
+function bindTest(msg)
+    print(msg or "bind msg")
+end
+local bindC = bind(bindTest, "bind call test")
+bindC()
 
 

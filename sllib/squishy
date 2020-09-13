@@ -4,18 +4,21 @@ Option "uglify"
 Option "uglify-level" "full"
 Option "no-executable"
 
-Module "sllib.class" "Class.lua"
-Module "sllib.debug_ext" "debug_ext.lua"
 Module "sllib.global" "global.lua"
 Module "sllib.io_ext" "io_ext.lua"
-Module "sllib.logs" "logs.lua"
 Module "sllib.os_ext" "os_ext.lua"
-Module "sllib.profiler" "profiler.lua"
-Module "sllib.string_ext" "string_ext.lua"
 Module "sllib.table_ext" "table_ext.lua"
-Module "sllib.list_ext" "list_ext.lua"
-Module "sllib.time" "time.lua"
+Module "sllib.string_ext" "string_ext.lua"
 Module "sllib.math_ext" "math_ext.lua"
+Module "sllib.debug_ext" "debug_ext.lua"
+Module "sllib.list_ext" "list_ext.lua"
+
+Module "sllib.time" "time.lua"
+Module "sllib.logs" "logs.lua"
+Module "sllib.class" "class.lua"
+Module "sllib.profiler" "profiler.lua"
+
+
 
 Main "init.lua"
 
