@@ -75,7 +75,7 @@ function logs.setLogPath(filepath)
 end
 
 function logs.clear()
-	local path = getLogPath()
+	local path = _getLogPath()
 	if not os.exist(path) then
 		return
 	end
