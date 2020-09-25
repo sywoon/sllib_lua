@@ -143,7 +143,7 @@ function os.basename(path)
 	return file
 end
 
--- d:/01/1.txt => 1   .txt
+-- d:/01/1.txt => 1   txt
 -- d:/01/02 => 02   nil
 function os.filename(path)
     local baseName = os.basename(path)

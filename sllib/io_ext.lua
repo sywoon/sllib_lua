@@ -53,12 +53,21 @@ function io.readJsonFile(path)
 	return data
 end
 
-function io.writeJsonFile(path, data)
+function io.writeJsonFile(path, data, dealPath)
+    if nil == dealPath then dealPath = true end
+    
 	local dir = os.dirname(path)
 	os.mkdir(dir)
 
 	local json = require "cjson" or require "json"
-	io.writeFile(path, json.encode(data))
+	local str = json.encode(data)  --内部会将"/"改为"\/"
+	
+	if dealPath then
+        str = string.gsub(str, "\\/", "/")
+        str = string.gsub(str, "\\\\", "/")
+	end
+	
+	io.writeFile(path, str)
 	return true
 end
 
