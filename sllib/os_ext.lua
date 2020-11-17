@@ -15,6 +15,7 @@ end
 --注意：所有的路径 都不带/结尾!!!
 local function _fixPath(path)
 	path = string.gsub(path, "\\", "/")
+	path = string.gsub(path, "//", "/")
 	if string.sub(path, -1, -1) == "/" then
 		path = string.sub(path, 1, -2)
 	end
@@ -202,9 +203,11 @@ function os.rmdir(path, verbose)
 	path = string.gsub(path, "/", "\\")
 	local cmd
 	if verbose then
-        cmd = "rd /S /Q " .. path
+		cmd = string.format('rd /S /Q  "%s"', path)
+        -- cmd = "rd /S /Q " .. path
 	else
-        cmd = "rd /S /Q " .. path .. " 1>nul 2>nul"
+		cmd = string.format('rd /S /Q  "%s" 1>nul', path)
+        -- cmd = "rd /S /Q " .. path .. " 1>nul 2>nul"
 	end
 
 	if verbose == true then
@@ -241,7 +244,7 @@ function os.movedir(oldpath, newpath, includeSelf)
 	os.mkpredir(newpath)
 	local rtn, err = os.rename(oldpath, newpath)
 	if not rtn then
-		print("movedir failed", oldpath, newpath)
+		print("movedir failed", oldpath, newpath, err)
 	end
 	return rtn
 end
@@ -270,9 +273,11 @@ function os.copydir(oldpath, newpath, verbose)
 
 	local cmd
 	if verbose then
-        cmd = "xcopy /Y /E /I /Q " .. oldpath .. " " .. newpath
-    else
-        cmd = "xcopy /Y /E /I /Q " .. oldpath .. " " .. newpath .. " 1>nul 2>nul"
+		cmd = string.format('xcopy /Y /E /I /Q "%s" "%s"', oldpath, newpath)
+        -- cmd = "xcopy /Y /E /I /Q " .. oldpath .. " " .. newpath
+	else
+		cmd = string.format('xcopy /Y /E /I /Q "%s" "%s" 1>nul', oldpath, newpath)
+        -- cmd = "xcopy /Y /E /I /Q " .. oldpath .. " " .. newpath .. " 1>nul 2>nul"
 	end
 
 	if verbose == true then
@@ -300,9 +305,11 @@ function os.copyfile(oldpath, newpath, verbose)
 
 	local cmd
 	if verbose then
-        cmd = "copy /Y " .. oldpath .. " " .. newpath
-    else
-        cmd = "copy /Y " .. oldpath .. " " .. newpath .. " 1>nul 2>nul"
+		cmd = string.format('copy /Y "%s" "%s"', oldpath, newpath)
+        -- cmd = 'copy /Y "' .. oldpath .. '" "' .. newpath .. '"'
+	else
+		cmd = string.format('copy /Y "%s" "%s"  1>nul', oldpath, newpath)
+        -- cmd = 'copy /Y "' .. oldpath .. '" "' .. newpath .. '" 1>nul 2>nul'
 	end
 
 	if verbose == true then
