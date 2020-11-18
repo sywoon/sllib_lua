@@ -4,6 +4,13 @@ local lfs = require "lfs"
 --os.remove 删除文件
 --os.rename 重命名文件或文件夹 也可以做移动用
 
+
+function os.pause(...)
+	print(...)
+	os.execute("cmd /c pause")
+end
+
+
 function os.sleep(n)
     n = n or 1
     os.execute("ping -n " .. tonumber(n + 1) .. " localhost > NUL")

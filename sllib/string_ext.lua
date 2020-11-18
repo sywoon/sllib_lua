@@ -61,3 +61,29 @@ function string.split(text, delim)
 	end
 	return t
 end
+
+-- 解决特殊字符导致match实现问题  用find的第四个参数关闭匹配模式
+function string.cutsub(str, substr)
+    local from, to = string.find(str, substr, 1, true)
+    if from == nil then
+        return str
+    end
+    
+    local left = ""
+    if from > 1 then
+        left = left .. string.sub(str, 1, from-1)
+    end
+    
+    if to < #str then
+        left = left .. string.sub(str, to+1)
+    end
+    return left
+end
+
+
+
+
+
+
+
+
