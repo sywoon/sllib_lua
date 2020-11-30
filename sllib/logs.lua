@@ -5,12 +5,21 @@ local _filepath = nil
 local _bWriteFile = true
 
 
+local function _isEmptyString(str)
+    local chkStr = string.gsub(str, "[\r\n\t]", "")
+    if chkStr == "" then
+        return true
+    end
+    
+    return false
+end
+
 --------------------------
 --
 local any2str_quotation = true
 local function _any2str(value)
 	if type(value) == "string" then
-        if any2str_quotation then
+        if any2str_quotation and value ~= "\n" then
             return '"' .. value .. '"'
         else
             return value
@@ -47,24 +56,22 @@ local function _writeLogFile(str)
 end
 
 -- 写log 加发生时间和换行
-local function _showLog(str)
+local function _showLog(str, addN)
+    addN = false
 	local date = os.date("*t")
 	local clock = os.clock()
 
 	local msg = str
 	if DEBUG_TIME then
-		msg = string.format("[%s-%s-%s %02s:%02s:%02s %s]\n%s",
+		msg = string.format("[%s-%s-%s %02s:%02s:%02s %s]%s",
 						date.year, date.month, date.day,
 						date.hour, date.min, date.sec,
 						clock,
 						str)
-	else
-		msg = str
 	end
 
-	print(msg)
-	_writeLogFile(msg)
-	_writeLogFile('\n')
+	print(msg)   --本身有换行功能
+	_writeLogFile(msg .. '\n')
 end
 
 --
@@ -89,26 +96,34 @@ function logs.clear()
 	io.writeFile(path, "")
 end
 
-function logs.i(...)
-	for _, v in ipairs({...}) do
+
+function logs._showLogs(...)
+    local args = {...}
+    local len = #args
+    local temp = {}
+	for i, v in ipairs(args) do
 		local str = _any2str(v)
-		_showLog(str)
+		table.insert(temp, str)
 	end
+	
+	_showLog(table.concat(temp, '\t'))
+end
+
+function logs.i(...)
+    --os.execute("echo. & color 0F")   --不支持分段颜色
+    logs._showLogs(...)
 end
 
 -- w for warn
 function logs.w(...)
-	os.execute("echo. & color 0E")
-	for _, v in ipairs({...}) do
-		local str = _any2str(v)
-		_showLog(str)
-	end
+    os.execute("echo. & color 0E")
+    logs._showLogs(...)
 end
 
 --e for error
 function logs.e(...)
 	os.execute("echo. & color 0C")
-	logs.i(...)
+	logs._showLogs(...)
 
     local last = any2str_quotation
     any2str_quotation = false
