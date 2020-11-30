@@ -42,10 +42,14 @@ function io.fileSize(path)
 end
 
 
-function io.readJsonFile(path)
+function io.readJsonFile(path, filter)
 	local text = io.readFile(path)
 	if nil == text or text == "" then
 		return nil
+	end
+	
+	if filter then
+        text = filter(text)
 	end
 
 	local json = require "cjson" or require "json"
@@ -71,10 +75,14 @@ function io.writeJsonFile(path, data, dealPath)
 	return true
 end
 
-function io.readLuaFile(path)
+function io.readLuaFile(path, filter)
 	local text = io.readFile(path)
 	if nil == text then
 		return nil
+	end
+	
+	if filter then
+        text = filter(text)
 	end
 
 	local call = loadstring or load

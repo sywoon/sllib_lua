@@ -19,3 +19,9 @@ function numbertostring(n)
     return str
 end
 
+--简化格式串的书写
+function _F(fmt, ...)
+    return string.format(fmt, ...)
+end
+
+
