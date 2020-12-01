@@ -57,7 +57,7 @@ function io.readJsonFile(path, filter)
 	return data
 end
 
-function io.writeJsonFile(path, data, dealPath)
+function io.writeJsonFile(path, data, dealPath, filter)
     if nil == dealPath then dealPath = true end
     
 	local dir = os.dirname(path)
@@ -69,6 +69,10 @@ function io.writeJsonFile(path, data, dealPath)
 	if dealPath then
         str = string.gsub(str, "\\/", "/")
         str = string.gsub(str, "\\\\", "/")
+	end
+	
+	if filter then
+        str = filter(str)
 	end
 	
 	io.writeFile(path, str)
@@ -90,7 +94,7 @@ function io.readLuaFile(path, filter)
 	return data
 end
 
-function io.writeLuaFile(path, data)
+function io.writeLuaFile(path, data, filter)
 	local dir = os.dirname(path)
 	os.mkdir(dir)
 
@@ -101,6 +105,10 @@ function io.writeLuaFile(path, data)
 	local text = table.tostring(data)
 	if nil == text then
 		return false
+	end
+	
+	if filter then
+        text = filter(text)
 	end
 
 	io.writeFile(path, text)
