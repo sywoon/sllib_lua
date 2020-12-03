@@ -295,6 +295,7 @@ function os.copydir(oldpath, newpath, verbose)
 	--有bug 文件夹名会多出一个字母
 	--且和copy不同 会多一层目录
 	--return pl.dir.clonetree(oldpath, newpath, pl.dir.copyfile)
+	return true
 end
 
 --os.copyfile("aa/1.txt", "bb/cc") -> aa/1.txt + bb/cc/1.txt
@@ -334,7 +335,13 @@ function os.movefile(oldpath, newpath)
 
 	local name = os.basename(oldpath)
 	newpath = newpath .. "/" .. name
-	return os.rename(oldpath, newpath)
+	os.remove(newpath)
+	
+	local rtn, err = os.rename(oldpath, newpath)
+	if not rtn then
+		print("movefile failed", oldpath, newpath, err)
+	end
+	return rtn
 end
 
 function os.dirempty(path)
