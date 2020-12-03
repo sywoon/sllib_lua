@@ -24,4 +24,29 @@ function _F(fmt, ...)
     return string.format(fmt, ...)
 end
 
+function printw(...)
+    os.execute("echo. & color 0E")
+    print(...)
+end
+
+function printe(...)
+    os.execute("echo. & color 0C")
+    print(...)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
