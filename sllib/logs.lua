@@ -3,7 +3,7 @@ logs = logs or {}
 local DEBUG_TIME = false
 local _filepath = nil
 local _bWriteFile = true
-
+local isLineColor = console.isSupportLineColor()
 
 local function _isEmptyString(str)
     local chkStr = string.gsub(str, "[\r\n\t]", "")
@@ -116,19 +116,25 @@ end
 
 -- w for warn
 function logs.w(...)
-    os.execute("echo. & color 0E")
+    --os.execute("echo. & color 0E")
+    console.setColor(0x0E)
     logs._showLogs(...)
+    if isLineColor then console.resetColor() end
 end
 
 --e for error
 function logs.e(...)
-	os.execute("echo. & color 0C")
+	--os.execute("echo. & color 0C")
+	console.setColor(0x0C)
+	
 	logs._showLogs(...)
 
     local last = any2str_quotation
     any2str_quotation = false
     _showLog(debug.traceback("", 2))
     any2str_quotation = last
+    
+    if isLineColor then console.resetColor() end
 end
 
 function logs.f(fmt, ...)

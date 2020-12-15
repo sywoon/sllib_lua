@@ -5,7 +5,7 @@
 rawset(_G, "SLLIB_VERSION", "1.1.2")
 
 
-
+require "sllib.console"
 require "sllib.global"
 require "sllib.io_ext"
 require "sllib.os_ext"
@@ -14,6 +14,7 @@ require "sllib.string_ext"
 require "sllib.list_ext"
 require "sllib.math_ext"
 require "sllib.debug_ext"
+
 
 require "sllib.time"
 require "sllib.logs"

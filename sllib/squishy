@@ -4,6 +4,7 @@ Option "uglify"
 Option "uglify-level" "full"
 Option "no-executable"
 
+Module "sllib.console" "console.lua"
 Module "sllib.global" "global.lua"
 Module "sllib.io_ext" "io_ext.lua"
 Module "sllib.os_ext" "os_ext.lua"

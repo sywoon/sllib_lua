@@ -24,14 +24,20 @@ function _F(fmt, ...)
     return string.format(fmt, ...)
 end
 
+
+local isLineColor = console.isSupportLineColor()
 function printw(...)
-    os.execute("echo. & color 0E")
+    --os.execute("echo. & color 0E")
+    console.setColor(0x0E)
     print(...)
+    if isLineColor then console.resetColor() end
 end
 
 function printe(...)
-    os.execute("echo. & color 0C")
+    --os.execute("echo. & color 0C")
+    console.setColor(0x0C)
     print(...)
+    if isLineColor then console.resetColor() end
 end
 
 
