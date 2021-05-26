@@ -78,5 +78,19 @@ local bindC = bind(bindTest, "bind call test")
 bindC()
 
 
+-- set
+local s1 = set.new({11, 22, 33})
+local s2 = set.new({22, 44, 66})
+set.print(s1+s2)
+set.print(s1-s2)
+set.print(set.intersection(s1, s2))
+
+
+
+
+
+
+
+
 
 
