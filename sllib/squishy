@@ -13,6 +13,7 @@ Module "sllib.string_ext" "string_ext.lua"
 Module "sllib.math_ext" "math_ext.lua"
 Module "sllib.debug_ext" "debug_ext.lua"
 Module "sllib.list_ext" "list_ext.lua"
+Module "sllib.set" "set.lua"
 
 Module "sllib.time" "time.lua"
 Module "sllib.logs" "logs.lua"

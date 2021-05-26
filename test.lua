@@ -1,3 +1,4 @@
+--require "sllib"
 require "sllib_base"
 
 print("version", SLLIB_VERSION)
@@ -79,6 +80,7 @@ bindC()
 
 
 -- set
+
 local s1 = set.new({11, 22, 33})
 local s2 = set.new({22, 44, 66})
 set.print(s1+s2)
