@@ -1,7 +1,8 @@
 --require "sllib"
 require "sllib_base"
 
-print("version", SLLIB_VERSION)
+print("lua version", _VERSION)
+print("lib version", SLLIB_VERSION)
 
 table.print({11, 22})
 
@@ -88,6 +89,7 @@ set.print(s1-s2)
 set.print(set.intersection(s1, s2))
 
 
+printu("你好，世界！")
 
 
 

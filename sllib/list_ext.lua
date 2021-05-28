@@ -2,6 +2,24 @@ list = list or {}
 
 
 
+function list.map(l, func)
+    for idx, v in ipairs(l) do
+        l[idx] = func(v, idx)
+    end
+    return l
+end
+
+function list.filter(l, func)
+    local r = {}
+    for idx, v in ipairs(l) do
+        if func(v, idx) then
+            table.insert(r, v)
+        end
+    end
+    l = r
+    return l
+end
+
 --- Append an item to a list.
 -- @param x item
 -- @return <code>{l[1], ..., l[#l], x}</code>

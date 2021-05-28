@@ -5,9 +5,12 @@ local lfs = require "lfs"
 --os.rename 重命名文件或文件夹 也可以做移动用
 
 
-function os.pause(...)
-	print(...)
-	os.execute("cmd /c pause")
+function os.pause(msg)
+    if msg then
+        os.execute(_F('cmd /c echo "%s" && pause', msg))
+    else
+        os.execute("cmd /c pause")
+    end
 end
 
 
@@ -28,6 +31,7 @@ local function _fixPath(path)
 	end
 	return path
 end
+os.fixPath = _fixPath
 
 -- 驱动盘路径 C: D: 等
 local function _isWinDriver(path)
