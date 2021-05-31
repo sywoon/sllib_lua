@@ -23,11 +23,17 @@ function os.sleep(n)
 end
 
 --注意：所有的路径 都不带/结尾!!!
-local function _fixPath(path)
+local function _fixPath(path, keepLast)
 	path = string.gsub(path, "\\", "/")
 	path = string.gsub(path, "//", "/")
 	if string.sub(path, -1, -1) == "/" then
-		path = string.sub(path, 1, -2)
+        if not keepLast then
+            path = string.sub(path, 1, -2)
+        end
+    else
+        if keepLast then
+            path = path .. "/"
+        end
 	end
 	return path
 end
@@ -334,7 +340,16 @@ end
 --os.movefile("aa/1.txt", "bb/cc") -> aa + bb/cc/1.txt
 --文件全路径 +　新文件夹路径 
 --文件名会保留
-function os.movefile(oldpath, newpath)
+function os.movefile(oldpath, newpath, showLog)
+    oldpath = _fixPath(oldpath)
+	newpath = _fixPath(newpath)
+	if not os.exist(oldpath) then
+        if showLog then
+            print("[movefile] file not exist", oldpath, newpath)
+        end
+        return
+	end
+	
 	os.mkdir(newpath)
 
 	local name = os.basename(oldpath)
@@ -343,7 +358,9 @@ function os.movefile(oldpath, newpath)
 	
 	local rtn, err = os.rename(oldpath, newpath)
 	if not rtn then
-		print("movefile failed", oldpath, newpath, err)
+        if showLog then
+            print("[movefile] failed", oldpath, newpath, err)
+        end
 	end
 	return rtn
 end
