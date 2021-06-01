@@ -19,6 +19,23 @@ function numbertostring(n)
     return str
 end
 
+function any2str(value, quotationStr)
+	if type(value) == "string" then
+        if quotationStr and value ~= "\n" then
+            return '"' .. value .. '"'
+        else
+            return value
+        end
+	elseif type(value) == "table" then
+		return table.tostring(value)
+	elseif type(value) == "number" then
+		return numbertostring(value)
+	else
+		local str = tostring(value) or "Unknown object!"
+		return str
+	end
+end
+
 --简化格式串的书写
 function _F(fmt, ...)
     return string.format(fmt, ...)

@@ -18,14 +18,30 @@ function _A2U(str)
     return charset.a2u(str)
 end
 
--- print utf8 string
-function printu(...)
+local function _argsToustr(split, ...)
+    split = split or '\t'
     local args = {...}
     local temp = {}
     for _, str in ipairs(args) do
-        table.insert(temp, _U2A(str))
+        table.insert(temp, _U2A(any2str(str)))
     end
 
-    local msg = table.concat(temp, '\t')
+    local msg = table.concat(temp, split)
+    return msg
+end
+
+-- print utf8 string
+function printu(...)
+    local msg = _argsToustr('\t', ...)
     print(msg)
+end
+
+function printuw(...)
+    local msg = _argsToustr('\t', ...)
+    printw(msg)
+end
+
+function printue(...)
+    local msg = _argsToustr('\t', ...)
+    printe(msg)
 end

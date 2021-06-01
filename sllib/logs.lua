@@ -18,20 +18,7 @@ end
 --
 local any2str_quotation = true
 local function _any2str(value)
-	if type(value) == "string" then
-        if any2str_quotation and value ~= "\n" then
-            return '"' .. value .. '"'
-        else
-            return value
-        end
-	elseif type(value) == "table" then
-		return table.tostring(value)
-	elseif type(value) == "number" then
-		return numbertostring(value)
-	else
-		local str = tostring(value) or "Unknown object!"
-		return str
-	end
+    return any2str(value, any2str_quotation)
 end
 
 local function _getLogPath()
