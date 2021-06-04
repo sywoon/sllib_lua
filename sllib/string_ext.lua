@@ -63,10 +63,12 @@ function string.split(text, delim)
 end
 
 -- 解决特殊字符导致match实现问题  用find的第四个参数关闭匹配模式
-function string.cutsub(str, substr)
-    local from, to = string.find(str, substr, 1, true)
+-- 返回第二个参数：表示新串可以继续匹配的开始位置 方便循环迭代
+function string.cutsub(str, substr, pos)
+    pos = pos or 1
+    local from, to = string.find(str, substr, pos, true)
     if from == nil then
-        return str
+        return str, -1
     end
     
     local left = ""
@@ -77,10 +79,31 @@ function string.cutsub(str, substr)
     if to < #str then
         left = left .. string.sub(str, to+1)
     end
-    return left
+    return left, from
 end
 
-
+-- 解决特殊字符导致gsub实现问题  用find的第四个参数关闭匹配模式
+-- 比如： "第3级)"  "[你好]"  () []在匹配中都有特殊含义
+function string.replacesub(str, substr, replace, pos)
+    pos = pos or 1
+    local from, to = string.find(str, substr, pos, true)
+    if from == nil then
+        return str, -1
+    end
+    
+    local left = ""
+    if from > 1 then
+        left = left .. string.sub(str, 1, from-1)
+    end
+    
+    left = left .. replace
+    local newStart = string.len(left)+1
+    
+    if to < #str then
+        left = left .. string.sub(str, to+1)
+    end
+    return left, newStart
+end
 
 
 
