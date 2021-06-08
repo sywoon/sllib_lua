@@ -26,7 +26,8 @@ end
 local function _fixPath(path, keepLast)
 	path = string.gsub(path, "\\", "/")
 	path = string.gsub(path, "//", "/")
-	if string.sub(path, -1, -1) == "/" then
+	--if string.sub(path, -1, -1) == "/" then
+	if string.byte(path, -1) == 47 then  -- "/":47
         if not keepLast then
             path = string.sub(path, 1, -2)
         end
