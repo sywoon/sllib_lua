@@ -19,6 +19,19 @@ function string.dumpex(buff)
 	end)
 end
 
+function string.trim(str, where)
+	where = where or "both"
+	if where == "begin" then
+		return (string.gsub(str, "^%s*", ""))
+	elseif where == "end" then
+		return (string.gsub(str, "%s*$", ""))
+	elseif where == "both" then
+		str = string.gsub(str, "^%s*", "")
+		return (string.gsub(str, "%s*$", ""))
+	end
+end
+
+
 function string.iterateString(str, flag, call)
 	flag = flag or '\n'
 	--只有一行数据
