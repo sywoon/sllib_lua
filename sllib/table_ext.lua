@@ -197,87 +197,85 @@ end
 
 
 
-local data = {
-	["empty"] = function (t)
-		return next(t) == nil
-	end,
-	
-	["size"] = function (t)
-        local n = 0
-        for k, v in pairs(t) do
-            n = n + 1
-        end
-        return n
-	end,
 
-	["keys"] = function (t)
-		local u = {}
-		for k, _ in pairs(t or {}) do
-			table.insert(u, k)
-		end
-		return u
-	end,
+function table.empty(t)
+	return next(t) == nil
+end
 
-	["values"] = function (t)
-		local u = {}
-		for _, v in pairs(t or {}) do
-			table.insert(u, v)
-		end
-		return u
-	end,
+function table.size(t)
+	local n = 0
+	for k, v in pairs(t) do
+		n = n + 1
+	end
+	return n
+end
 
-	["invert"] = function (t)
-		local u = {}
-		for k, v in pairs(t or {}) do
-			u[v] = k
-		end
-		return u
-	end,
+function table.keys(t)
+	local u = {}
+	for k, _ in pairs(t or {}) do
+		table.insert(u, k)
+	end
+	return u
+end
 
-	["clone"] = function (t, nometa)
-		local u = {}
-		if not nometa then
-			setmetatable(u, getmetatable(t))
-		end
+function table.values(t)
+	local u = {}
+	for _, v in pairs(t or {}) do
+		table.insert(u, v)
+	end
+	return u
+end
 
+function table.invert(t)
+	local u = {}
+	for k, v in pairs(t or {}) do
+		u[v] = k
+	end
+	return u
+end
+
+function table.clone(t, nometa)
+	local u = {}
+	if not nometa then
+		setmetatable(u, getmetatable(t))
+	end
+
+	for k, v in pairs(t) do
+		u[k] = v
+	end
+	return u
+end
+
+function table.merge(...)
+	local r = {}
+	for _, t in ipairs({...}) do
 		for k, v in pairs(t) do
-			u[k] = v
+			r[k] = v
 		end
-		return u
-	end,
+	end
+	return r
+end
 
-	["merge"] = function (...)
-		local r = {}
-		for _, t in ipairs({...}) do
-			for k, v in pairs(t) do
-				r[k] = v
-			end
-		end
-		return r
-	end,
+function table.address(t)
+	local str
+	if rawget(_G, "_tostring") then  --std库修改的
+		str = _tostring(t)
+	else
+		str = tostring(t)
+	end
+	return string.gsub(str, "^table: ", "") or ""
+end
 
-	["address"] = function (t)
-		local str
-		if rawget(_G, "_tostring") then  --std库修改的
-			str = _tostring(t)
-		else
-			str = tostring(t)
-		end
-		return string.gsub(str, "^table: ", "") or ""
-	end,
+table.tostring = tostring
+table.tostringex = tostringex
 
-	["tostring"] = tostring,
-	["tostringex"] = tostringex,
-
-	["print"] = function (t)
-		if type(t) ~= "table" then
-			_G.print(t)
-		else
-			_G.print(table.tostring(t))
-		end
-	end,
-}
-_extend(table, data)
+function table.print(t)
+	if type(t) ~= "table" then
+		_G.print(t)
+	else
+		_G.print(table.tostring(t))
+	end
+end
 
 
 

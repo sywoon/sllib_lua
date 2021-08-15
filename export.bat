@@ -2,7 +2,7 @@
 
 call ../squish_to_one/make_lua.bat "%~dp0sllib"
 
-
+pause
 :: sllib_base.lua.uglifie  use loadstring bug not exist after lua5.2
 del /f sllib_base.lua
 
