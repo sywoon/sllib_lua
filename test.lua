@@ -62,6 +62,10 @@ logf("%s", "aaa")
 --loge("loge")
 trace("%s", "bbb")
 
+logs.time("log time test")
+--time.sleep(1.234)
+logs.timeEnd("log time test")
+
 
 ---os_ext
 table.print(os.dir("."))

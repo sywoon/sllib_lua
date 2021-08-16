@@ -4,6 +4,7 @@ local DEBUG_TIME = false
 local _filepath = nil
 local _bWriteFile = true
 local isLineColor = console.isSupportLineColor()
+local _logTimes = {}
 
 local function _isEmptyString(str)
     local chkStr = string.gsub(str, "[\r\n\t]", "")
@@ -135,6 +136,20 @@ function logs.trace(fmt, ...)
 	_showLog(tracemsg)
 end
 
+function logs.time(flag)
+    flag = tostring(flag)
+    _logTimes[flag] = time.millitime()
+end
+
+function logs.timeEnd(flag)
+    flag = tostring(flag)
+    if not _logTimes[flag] then
+        return
+    end
+    
+    local use = time.millitime() - _logTimes[flag]
+    print(_F("%s:%d", flag, use))
+end
 
 
 return logs

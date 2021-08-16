@@ -7,6 +7,13 @@ function time.time()
 	return os.time()
 end
 
+
+--实现原理  注意：CLOCKS_PER_SEC不同平台不一致 有遇到过黑苹果下时间不准确问题
+--static int os_clock (lua_State *L) {  
+--  lua_pushnumber(L, ((lua_Number)clock())/(lua_Number)CLOCKS_PER_SEC);  
+--  return 1;  
+--} 
+--程序使用CPU时间的一个近似值
 --精确到0.01秒
 function time.clock()
 	return os.clock()
