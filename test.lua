@@ -75,6 +75,8 @@ print(string.strtox16("abcd"))
 
 ---time
 print(time.getstr("%c"))
+print(time.time())
+print(time.millitime())
 
 --bind
 function bindTest(msg)

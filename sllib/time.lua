@@ -21,8 +21,12 @@ end
 
 --毫秒级别 需要luasocket库
 function time.millitime()
+    if os.millitime then
+        return os.millitime()
+    end
+    
 	require "socket.core"
-	return math.modf(socket.gettime() * 1000)
+	return (math.modf(socket.gettime() * 1000))
 end
 
 
