@@ -1,5 +1,12 @@
 
 
+if not math.pow then
+    math.pow = function (a, b)
+        return a ^ b
+    end
+end
+
+
 -- 切割float 保留小数len位
 function math.cutf(f, len)
     local f1, f2 = math.modf(f)
