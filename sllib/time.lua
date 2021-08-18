@@ -25,7 +25,7 @@ function time.millitime()
         return os.millitime()
     end
     
-	require "socket.core"
+	local socket = require "socket.core"
 	return (math.modf(socket.gettime() * 1000))
 end
 
