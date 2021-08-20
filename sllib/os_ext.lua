@@ -395,19 +395,19 @@ function os.dir(path, depth, filter)
 				local path = path .. '/' .. entry
 				local attr = lfs.attributes(path)
 				if attr == nil then
-					break
-				end
-
-				local isFolder = attr.mode == 'directory'
-				if nil == filter or filter(path, isFolder) then
-					if isFolder then
-						table.insert(folders, path)
-					else
-						table.insert(files, path)
-					end
-					
-					if isFolder and depth > 0 then
-                        _dir(path, depth)
+					print("file can't read", path)
+				else
+                    local isFolder = attr.mode == 'directory'
+                    if nil == filter or filter(path, isFolder) then
+                        if isFolder then
+                            table.insert(folders, path)
+                        else
+                            table.insert(files, path)
+                        end
+                        
+                        if isFolder and depth > 0 then
+                            _dir(path, depth)
+                        end
                     end
 				end
 			end
