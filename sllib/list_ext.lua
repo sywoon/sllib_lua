@@ -40,6 +40,15 @@ function list.concat(...)
 	return r
 end
 
+function list.indexOf(l, value)
+    for idx, v in ipairs(l) do
+		if v == value then
+			return idx
+		end
+	end
+	return -1
+end
+
 function list.remove(l, value)
 	for idx, v in ipairs(l) do
 		if v == value then
