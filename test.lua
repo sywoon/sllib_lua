@@ -99,7 +99,12 @@ printu("你好，世界！")
 
 
 
-
+--string
+do
+    local s = "aabbccbbdd"
+    print(string.replacesub(s, "bb", "-"))
+    print(string.replacesubAll(s, "bb", "+"))
+end
 
 
 

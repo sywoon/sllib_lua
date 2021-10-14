@@ -118,6 +118,16 @@ function string.replacesub(str, substr, replace, pos)
     return left, newStart
 end
 
+--一次替换所有子串
+--历史原因 命名保留replacesub部分不变
+function string.replacesubAll(str, substr, replace, pos)
+    pos = pos or 1
+    local from = pos
+    repeat
+        str, from = string.replacesub(str, substr, replace, from)
+    until from == -1
+    return str
+end
 
 
 
