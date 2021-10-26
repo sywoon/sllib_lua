@@ -68,7 +68,7 @@ function io.writeJsonFile(path, data, dealPath, filter)
 	
 	if dealPath then
         str = string.gsub(str, "\\/", "/")
-        str = string.gsub(str, "\\\\", "/")
+        str = string.gsub(str, "\\\\", "\\")
 	end
 	
 	if filter then
