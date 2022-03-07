@@ -17,6 +17,7 @@ Module "sllib.list_ext" "list_ext.lua"
 Module "sllib.set" "set.lua"
 
 Module "sllib.time" "time.lua"
+Module "sllib.timer" "timer.lua"
 Module "sllib.logs" "logs.lua"
 Module "sllib.class" "class.lua"
 Module "sllib.profiler" "profiler.lua"

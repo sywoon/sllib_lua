@@ -107,5 +107,10 @@ do
 end
 
 
+--timer
+do
+    print(timer.millitime(), timer.time())
+    table.print(timer.timeinfo())
+end
 
 
