@@ -1,5 +1,5 @@
 local ctimer = require "ctimer"
-local timer = timer or {}
+timer = timer or {}
 
 if not ctimer then
     return timer
@@ -97,8 +97,6 @@ end
 function timer.timeinfo()
     return ctimer.getTime()
 end
-
-
 
 
 

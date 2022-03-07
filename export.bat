@@ -8,7 +8,7 @@ del /f sllib_base.lua
 echo loadstring = loadstring or load > _.lua
 copy /b _.lua+sllib_base.lua.uglified sllib_base.lua
 ::ren sllib_base.lua.uglified sllib_base.lua
-
+pause
 del /f _.lua
 del /f sllib_base.lua.uglified
 
