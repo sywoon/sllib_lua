@@ -65,7 +65,7 @@ function timer._doUpdate(stamp)
         end
     end
     
-    if endidx > 0 and endidx < #_cbks then
+    if endidx > 0 and endidx <= #_cbks then
         _cbks = list.sub(_cbks, endidx+1)
     end
 end
