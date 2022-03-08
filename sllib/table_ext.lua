@@ -8,17 +8,6 @@ local function _initValue(t, data)
 	end
 end
 
---扩展库函数
---{
---{"name1" = function},
---{"name2" = function},
---}
-local function _extend(t, data)
-	for k, v in pairs(data) do
-		t[k] = t[k] or v
-	end
-end
-
 
 local values = {
 	--table内重复的引用 只显示地址
