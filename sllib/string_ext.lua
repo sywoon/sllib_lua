@@ -19,6 +19,17 @@ function string.dumpex(buff)
 	end)
 end
 
+function string.rfind(str, sub)
+    local from, to = string.find(str, sub, 1, true)
+    local lastFrom, lastTo = from, to
+    while from ~= nil do
+        lastFrom, lastTo = from, to
+        from, to = string.find(str, sub, to, true)
+    end
+    
+    return lastFrom, lastTo
+end
+
 function string.trim(str, where)
 	where = where or "both"
 	if where == "begin" then
@@ -73,6 +84,14 @@ function string.split(text, delim)
 		end
 	end
 	return t
+end
+
+--裁剪不要的部分
+function string.cut(str, from, to)
+    to = to or #str
+    local front = string.sub(str, 1, from-1) or ""
+    local back = string.sub(str, to+1) or ""
+    return front .. back
 end
 
 -- 解决特殊字符导致match实现问题  用find的第四个参数关闭匹配模式
