@@ -10,7 +10,7 @@ local _cbks = {}
 --业务自己维护name的唯一性
 function timer.after(milli, cbk, name)
     local now = ctimer.getTimestamp()
-    local data = {count=1, time=milli+now, name=name, cbk=cbk}
+    local data = {loop=false, count=1, time=milli+now, name=name, cbk=cbk}
     table.insert(_cbks, data)
     timer._sortCbks()
 end
@@ -23,7 +23,7 @@ function timer.repeats(interval, cbk, count, params)
     params = params or {}
     local now = ctimer.getTimestamp()
     local time = params.runsoon and now or interval+now
-    local data = {count=count, time=time, name=params.name, cbk=cbk,
+    local data = {loop=true, count=count, time=time, name=params.name, cbk=cbk,
                     interval=interval, endCbk=params.endCbk}
     table.insert(_cbks, data)
     timer._sortCbks()
@@ -50,10 +50,16 @@ function timer._doUpdate(stamp)
 
     for idx, info in ipairs(_cbks) do
         if info.time < now then
-            info.count = info.count - 1
+            local reAdd = info.loop
+            if info.loop and info.count > 0 then
+                info.count = info.count - 1
+                if info.count == 0 then
+                    reAdd = false
+                end
+            end
             info.cbk(now)
             
-            if info.count > 0 then
+            if reAdd then
                 info.time = info.interval+now
                 table.insert(_cbks, info)
             else
