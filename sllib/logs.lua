@@ -58,7 +58,7 @@ local function _showLog(str, addN)
 						str)
 	end
 
-	print(msg)   --本身有换行功能
+	--print(msg)   --本身有换行功能  因为控制台用ansi 而txt采用utf8 所以分开打印
 	_writeLogFile(msg .. '\n')
 end
 

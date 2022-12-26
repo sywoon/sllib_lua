@@ -241,7 +241,7 @@ n=°
 ë e
 Ü
 â £.dirempty(e)å e=£.dir(e,ì)ë ó.empty(e)Ü
-â £.dir(o,e,l)ä ñ.Æ(o,-1,-1)==¬í
+â £.dir(o,e,s)ä ñ.Æ(o,-1,-1)==¬í
 o=ñ.Æ(o,1,-2)Ü
 å t=30
 ä ¶(e)=="boolean"í
@@ -251,16 +251,16 @@ e=e
 Ñ
 e=t
 Ü
-å r={}å s={}å â i(o,t)t=t-1
+å l={}å r={}å â i(o,t)t=t-1
 à e ã n.dir(o)É
 ä e~='.'Å e~='..'í
 å e=o..'/'..e
 å n=n.≤(e)ä n==ç í
 °("file can't read",e)Ñ
-å n=n.mode=='directory'ä ç==l è l(e,n)í
+å n=n.mode=='directory'ä ç==s è s(e,n)í
 ä n í
-ó.ò(r,e)Ñ
-ó.ò(s,e)Ü
+ó.ò(l,e)Ñ
+ó.ò(r,e)Ü
 ä n Å t>0 í
 i(e,t)Ü
 Ü
@@ -268,7 +268,7 @@ i(e,t)Ü
 Ü
 Ü
 Ü
-i(o,e)ë s,r
+i(o,e)ë r,l
 Ü
 â £.dirext(e,n,t)å t=ó.‡(t)ë £.dir(e,n,â(e,n)ä n í
 ë ì
@@ -406,11 +406,11 @@ e=c(n)Ü
 Ü)ü.û['sllib.string_ext']=(â(...)â ñ.strtox16(e)ë ñ.≠(e,".",â(e)ë ñ.†("%02X",ñ.byte(e))Ü)Ü
 â ñ.x16tostr(e)ë ñ.≠(e,"..",â(e)å e=Ê(e,16)ë ñ.char(e)Ü)Ü
 â ñ.dumpex(e)ë ñ.≠(e,".",â(e)ë ñ.†("%02X ",ñ.byte(e))Ü)Ü
-â ñ.rfind(i,r)å n,e=ñ.Ú(i,r,1,ì)å t,o=n,e
+â ñ.rfind(i,t)å n,e=ñ.Ú(i,t,1,ì)å o,r=n,e
 ï n~=ç É
-t,o=n,e
-n,e=ñ.Ú(i,r,e,ì)Ü
-ë t,o
+o,r=n,e
+n,e=ñ.Ú(i,t,e,ì)Ü
+ë o,r
 Ü
 â ñ.trim(e,n)n=n è"both"ä n=="begin"í
 ë(ñ.≠(e,"^%s*",–))Ö n=="end"í
@@ -441,8 +441,8 @@ t(e)Ü
 Ü
 ë t
 Ü
-â ñ.cut(e,t,n)n=n è#e
-å t=ñ.Æ(e,1,t-1)è–å e=ñ.Æ(e,n+1)è–ë t..e
+â ñ.cut(n,t,e)e=e è#n
+å t=ñ.Æ(n,1,t-1)è–å e=ñ.Æ(n,e+1)è–ë t..e
 Ü
 â ñ.cutsub(n,t,e)e=e è 1
 å t,o=ñ.Ú(n,t,e,ì)ä t==ç í
@@ -624,14 +624,14 @@ n={}Ü
 ®.ò(e,n)Ü
 ë e
 Ü
-å â r(n,t)å e=®.Ù()à n ã ®.≈(n)É
+å â o(n,t)å e=®.Ù()à n ã ®.≈(n)É
 ä é ®.Õ(t,n)í
 ®.ò(e,n)Ü
 Ü
 ë e
 Ü
-å â o(n,e)à n ã ®.≈(n)É
-ä é ®.Õ(e,n)í
+å â r(e,n)à e ã ®.≈(e)É
+ä é ®.Õ(n,e)í
 ë á
 Ü
 Ü
@@ -640,8 +640,8 @@ n={}Ü
 å â l(t,n)ë ®.subset(t,n)Å é ®.subset(n,t)Ü
 e.__index=®
 e.__add=i
-e.__sub=r
-e.__le=o
+e.__sub=o
+e.__le=r
 e.__lt=l
 Ü)ü.û['sllib.time']=(â(...)ß=ß è{}â ß.ß()ë £.ß()Ü
 â ß.»()ë £.»()Ü
@@ -650,7 +650,7 @@ e.__lt=l
 å e=ô"socket.core"ë(≥.÷(e.gettime()*1e3))Ü
 â ß.sleep(e)e=e è 0
 £.´("ping -n "..Ê(e+1)..ﬁ)Ü
-â ß.getstr(n,e)n=n è'%c'e=e è £.ß()ë £.(n,e)Ü
+â ß.getstr(e,n)e=e è'%c'n=n è £.ß()ë £.(e,n)Ü
 â ß.getendofday(e)e=e è £.ß()å e=£.('*t',e)å e=£.('*t',£.ß({year=e["year"],month=e["month"],day=e["day"],hour=23,min=59,sec=59}))å e=£.ß(e)ë e
 Ü
 â ß.tohour(e)å t=≥.÷(e/3600)å n=≥.÷(≥.fmod(e,3600)/60)å e=≥.fmod(e,60)ë{hour=t,min=n,sec=e}Ü
@@ -697,9 +697,9 @@ n=§.Æ(n,o+1)Ü
 â ©.∂()ë t.¥()Ü
 â ©.ß()ë ≥.floor(t.¥()/1e3+.5)Ü
 â ©.timeinfo()ë t.getTime()Ü
-ë © Ü)ü.û['sllib.logs']=(â(...)•=• è{}å l=á
+ë © Ü)ü.û['sllib.logs']=(â(...)•=• è{}å i=á
 å n=ç
-å i=ì
+å l=ì
 å s=õ.∫()å r={}å â e(e)å e=ñ.≠(e,"[\r\n\t]",–)ä e==–í
 ë ì
 Ü
@@ -713,18 +713,18 @@ n=§.Æ(n,o+1)Ü
 å e=£.("*t")å e=ñ.†("%s_%s_%s.log",e.year,e.month,e.day)n=e
 ë e
 Ü
-å â d(n)ä é i í
+å â d(n)ä é l í
 ë
 Ü
 å e=a()Ÿ.Ω(e,n,"a+")Ü
 å â o(t,e)e=á
 å e=£.("*t")å o=£.»()å n=t
-ä l í
+ä i í
 n=ñ.†("[%s-%s-%s %02s:%02s:%02s %s]%s",e.year,e.month,e.day,e.hour,e.min,e.sec,o,t)Ü
-°(n)d(n..'\n')Ü
-â •.˘(e)i=e
+d(n..'\n')Ü
+â •.˘(e)l=e
 Ü
-â •.showLogTime(e)l=e
+â •.showLogTime(e)i=e
 Ü
 â •.setLogPath(e)n=e
 Ü
@@ -732,10 +732,10 @@ n=ñ.†("[%s-%s-%s %02s:%02s:%02s %s]%s",e.year,e.month,e.day,e.hour,e.min,e.sec,o
 ë
 Ü
 Ÿ.Ω(e,–)Ü
-â •.∆(...)å n={...}å e=#n
-å e={}à t,n ã ú(n)É
-å n=c(n)ó.ò(e,n)Ü
-o(ó.±(e,ˆ))Ü
+â •.∆(...)å e={...}å n=#e
+å n={}à t,e ã ú(e)É
+å e=c(e)ó.ò(n,e)Ü
+o(ó.±(n,ˆ))Ü
 â •.i(...)•.∆(...)Ü
 â •.w(...)õ.π(14)•.∆(...)ä s í õ.∏()Ü
 Ü
