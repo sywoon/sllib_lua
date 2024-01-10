@@ -4,6 +4,10 @@ local lfs = require "lfs"
 --os.remove 删除文件
 --os.rename 重命名文件或文件夹 也可以做移动用
 
+--local s_debug = false
+function os.debug(v)
+    s_debug = v
+end
 
 function os.pause(msg)
     if msg then
@@ -181,6 +185,7 @@ end
 -- 会按层级一路创建下去
 function os.mkdir(path)
 	path = _fixPath(path)
+	if s_debug then print("os.mkdir", path) end
 
 	local dirs = os.splitpathex(path)
 	local folderPath = ""
@@ -189,6 +194,7 @@ function os.mkdir(path)
 		if not _isWinDriver(dirs[i]) and not os.isdir(folderPath) then
 			local flag, error = lfs.mkdir(folderPath)
 			if nil == flag then
+                if s_debug then print("os.mkdir failed", folderPath, error) end
 				return flag, error
 			end
 		end
