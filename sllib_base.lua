@@ -1,17 +1,17 @@
 loadstring = loadstring or load 
 local base_char,keywords=128,{"and","break","do","else","elseif","end","false","for","function","if","in","local","nil","not","or","repeat","return","then","true","until","while","string","table","insert","require","tostring","console","ipairs","numbertostring","print","package","preload","format","self","os","list","logs","time","set","type","timer","\"table\"","execute","pairs","gsub","sub","totaltime","debug","\"number\"","math","concat","attributes","getTimestamp","millitime","reportsByTitle","resetColor","setColor","isSupportLineColor","defaultColor","tableAddress","writeFile","any2str","remove","calltime","__showInnerRef","splitpath","callcount","clock","_showLogs","elems","getFuncReport","logFunc","\"/\"","setmetatable","mkpredir","basename","mkdir","\"\"","member","count","linedefined","\"string\"","dirname","name","loadstring","modf","'\"'","short_src","match","_sortCbks","io","endCbk","tolist","invert","resume","\" localhost > NUL\"","rawset","profilingHandler","\"\\n\"","unpack","\"Unknown object!\"","subClass","tonumber","readFile","\"\\\\\"","tracingHandler","isdir","level","s_debug","exist","__keyCanBeNum","trace","sethook","find","getinfo","new","date","getFuncTitle","intersection","'\\t'","values","writeInFile","_G","splitpathex","startUpdate","rawget","currentdir",}; function prettify(code) return code:gsub("["..string.char(base_char).."-"..string.char(base_char+#keywords).."]", 
 	function (c) return keywords[c:byte()-base_char]; end) end return assert(loadstring(prettify[===[ü.†['sllib.console']=(â(...)å e=_VERSION=="Lua 5.3"Å 1 è 0
-å n
+å t
 ä e==1 í
-n=ô"console.core"Ü
+t=ô"console.core"Ü
 õ=õ è{}õ.ª=7
 â õ.∫()ë e==1
 Ü
 â õ.setDefaultColor(e)õ.ª=e
 Ü
-â õ.π(t)ä e==1 í
-ë n:setTextColor(t)Ñ
-å e=ñ.°("color %02X",t)ë £.´(e)Ü
+â õ.π(n)ä e==1 í
+ë t:setTextColor(n)Ñ
+å e=ñ.°("color %02X",n)ë £.´(e)Ü
 Ü
 â õ.∏()ä e==1 í
 õ.π(õ.ª)Ñ
@@ -58,13 +58,13 @@ printu=û
 Ü
 å n=ô"charset"â _U2A(e)e=ö(e)ë n.u2a(e)Ü
 â _A2U(e)e=ö(e)ë n.a2u(e)Ü
-å â n(e,...)e=e è¯å t={...}å n={}à t,e ã ú(t)É
+å â e(e,...)e=e è¯å t={...}å n={}à t,e ã ú(t)É
 ó.ò(n,_U2A(æ(e)))Ü
 å e=ó.≥(n,e)ë e
 Ü
-â printu(...)å e=n(¯,...)û(e)Ü
-â printuw(...)å e=n(¯,...)printw(e)Ü
-â printue(...)å e=n(¯,...)printe(e)Ü
+â printu(...)å e=e(¯,...)û(e)Ü
+â printuw(...)å e=e(¯,...)printw(e)Ü
+â printue(...)å e=e(¯,...)printe(e)Ü
 Ü)ü.†['sllib.io_ext']=(â(...)â €.Ë(n,e)e=e è"r"å e=€.open(n,e)ä e==ç í
 ë ç
 Ü
@@ -87,12 +87,12 @@ e:write(t)e:close()ë ì
 e=n(e)Ü
 å n=ô"cjson"è ô"json"å e=n.decode(e)ë e
 Ü
-â €.writeJsonFile(t,r,n,o)ä ç==n í n=ì Ü
-å e=£.”(t)£.Õ(e)å e=ô"cjson"è ô"json"å e=e.encode(r)ä n í
+â €.writeJsonFile(o,e,n,t)ä ç==n í n=ì Ü
+å r=£.”(o)£.Õ(r)å r=ô"cjson"è ô"json"å e=r.encode(e)ä n í
 e=ñ.≠(e,"\\/",…)e=ñ.≠(e,"\\\\",È)Ü
-ä o í
-e=o(e)Ü
-€.Ω(t,e)ë ì
+ä t í
+e=t(e)Ü
+€.Ω(o,e)ë ì
 Ü
 â €.readLuaFile(e,n)å e=€.Ë(e)ä ç==e í
 ë ç
@@ -102,15 +102,15 @@ e=n(e)Ü
 å n=’ è load
 å e=n(e)()ë e
 Ü
-â €.writeLuaFile(t,o,n)å e=£.”(t)£.Õ(e)ä ç==ó.ö í
+â €.writeLuaFile(n,o,t)å e=£.”(n)£.Õ(e)ä ç==ó.ö í
 ë á
 Ü
 å e=ó.ö(o)ä ç==e í
 ë á
 Ü
-ä n í
-e=n(e)Ü
-€.Ω(t,e)ë ì
+ä t í
+e=t(e)Ü
+€.Ω(n,e)ë ì
 Ü
 Ü)ü.†['sllib.os_ext']=(â(...)å n=ô"lfs"â £.∞(e)Ì=e
 Ü
@@ -186,19 +186,19 @@ e=e..…Ü
 ë £.Õ(e)Ü
 ë ì
 Ü
-â £.rmdir(n,e)ä é £.Î(n)í
-ä e í
-û("os.rmdir error:not dir:"..n)Ü
+â £.rmdir(e,n)ä é £.Î(e)í
+ä n í
+û("os.rmdir error:not dir:"..e)Ü
 ë
 Ü
-n=ñ.≠(n,…,È)å t
-ä e í
-t=ñ.°('rd /S /Q  "%s"',n)Ñ
-t=ñ.°('rd /S /Q  "%s" 1>nul',n)Ü
-ä e==ì í
-e=û
+e=ñ.≠(e,…,È)å t
+ä n í
+t=ñ.°('rd /S /Q  "%s"',e)Ñ
+t=ñ.°('rd /S /Q  "%s" 1>nul',e)Ü
+ä n==ì í
+n=û
 Ü
-ä e í e(t)Ü
+ä n í n(t)Ü
 ë £.´(t)Ü
 â £.movedir(t,n,o)ä ç==o í
 o=ì
@@ -223,14 +223,14 @@ o=û
 ä o í o(e)Ü
 £.´(e)ë ì
 Ü
-â £.copyfile(t,e,n)£.À(e)t=ñ.≠(t,…,È)e=ñ.≠(e,…,È)å o
-ä n í
-o=ñ.°('copy /Y "%s" "%s"',t,e)Ñ
-o=ñ.°('copy /Y "%s" "%s"  1>nul',t,e)Ü
-ä n==ì í
-n=û
+â £.copyfile(t,n,e)£.À(n)t=ñ.≠(t,…,È)n=ñ.≠(n,…,È)å o
+ä e í
+o=ñ.°('copy /Y "%s" "%s"',t,n)Ñ
+o=ñ.°('copy /Y "%s" "%s"  1>nul',t,n)Ü
+ä e==ì í
+e=û
 Ü
-ä n í n(o)Ü
+ä e í e(o)Ü
 ë £.´(o)Ü
 â £.movefile(t,n,o)t=e(t)n=e(n)ä é £.Ó(t)í
 ä o í
@@ -255,7 +255,7 @@ e=e
 Ñ
 e=t
 Ü
-å i={}å l={}å â s(o,t)t=t-1
+å l={}å i={}å â s(o,t)t=t-1
 à e ã n.dir(o)É
 ä e~='.'Å e~='..'í
 å e=o..'/'..e
@@ -263,8 +263,8 @@ e=t
 û("file can't read",e)Ñ
 å n=n.mode=='directory'ä ç==r è r(e,n)í
 ä n í
-ó.ò(i,e)Ñ
-ó.ò(l,e)Ü
+ó.ò(l,e)Ñ
+ó.ò(i,e)Ü
 ä n Å t>0 í
 s(e,t)Ü
 Ü
@@ -272,9 +272,9 @@ s(e,t)Ü
 Ü
 Ü
 Ü
-s(o,e)ë l,i
+s(o,e)ë i,l
 Ü
-â £.dirext(e,n,t)å t=ó.ﬁ(t)ë £.dir(e,n,â(e,n)ä n í
+â £.dirext(n,e,t)å t=ó.ﬁ(t)ë £.dir(n,e,â(e,n)ä n í
 ë ì
 Ü
 å e=£.extension(e)ä t[e]í
@@ -282,50 +282,50 @@ s(o,e)ë l,i
 Ü
 ë á
 Ü)Ü
-Ü)ü.†['sllib.table_ext']=(â(...)å â n(e,n)à n,t ã ¨(n)É
+Ü)ü.†['sllib.table_ext']=(â(...)å â e(e,n)à n,t ã ¨(n)É
 e[n]=t
 Ü
 Ü
-å e={¡=á,Ô=ì,}n(ó,e)å â r(r)ä é ¡ í
+å n={¡=á,Ô=ì,}e(ó,n)å â i(r)ä é ¡ í
 ë{}Ü
-å o={}å t={}å â n(e)ä o[e]í
-t[e]=e
+å t={}å o={}å â n(e)ä t[e]í
+o[e]=e
 ë
 Ü
-o[e]=e
-à e,t ã ¨(e)É
-ä ®(e)==™í
-n(e)Ö ®(t)==™í
-n(t)Ü
+t[e]=e
+à t,e ã ¨(e)É
+ä ®(t)==™í
+n(t)Ö ®(e)==™í
+n(e)Ü
 Ü
 Ü
-n(r)ë t
+n(r)ë o
 Ü
-å â c(c,u,f)å n=ó.ò
+å â d(c,u,f)å n=ó.ò
 å d=ó.≥
-å s={}å r=r(c)å â a(o,i,t)i=i Å(i-1)è 30
+å a={}å r=i(c)å â s(o,i,t)i=i Å(i-1)è 30
 ä i<0 í
 ë t.."..."Ü
 t=t èŒä next(o)==ç í
 ë t.."{}"Ü
 ä ¡ í
-s[o]=o
+a[o]=o
 Ü
 å e={}n(e,t.."{")ä r[o]í
 n(e,º(o))Ü
 n(e,„)t=t.."  "ä Ô è#o==0 í
 à l,r ã ¨(o)É
 n(e,t)ä ®(l)==™í
-ä s[o]í
+ä a[o]í
 n(e,º(o))Ñ
-ø(e)n(e,a(l,i,t))Ü
+ø(e)n(e,s(l,i,t))Ü
 Ö ®(l)==±í
 n(e,"["..ù(l).."]")Ñ
 å t=˚.ö(l)n(e,'["'..t..'"]')Ü
 n(e," = ")ä ®(r)==™í
-ä s[r]í
+ä a[r]í
 n(e,º(r))Ñ
-n(e,„)n(e,a(r,i,t))Ü
+n(e,„)n(e,s(r,i,t))Ü
 Ö ®(r)==±í
 n(e,ù(r))Ö ®(r)==“í
 n(e,◊..r..◊)Ñ
@@ -334,16 +334,16 @@ n(e,",\n")Ü
 Ñ
 à r,o ã ú(o)É
 n(e,t)n(e,"["..ù(r).."]")n(e," = ")ä ®(o)==™í
-n(e,„)ä s[o]í
+n(e,„)ä a[o]í
 n(e,º(o))Ñ
-n(e,a(o,i,t))Ü
+n(e,s(o,i,t))Ü
 Ö ®(o)==±í
 n(e,ù(o))Ñ
 n(e,◊..˚.ö(o)..◊)Ü
 n(e,",\n")Ü
 Ü
 e[#e]=","n(e,„..ñ.Æ(t,1,-3).."}")ë d(e)Ü
-ë a(c,u,f)Ü
+ë s(c,u,f)Ü
 å â i(t,o)å n=ó.ò
 å l=ó.≥
 o=o Å(o-1)è 10
@@ -377,15 +377,15 @@ e=e+1
 ó.ò(e,n)Ü
 ë e
 Ü
-â ó.ﬁ(n)å e={}à n,t ã ¨(n è{})É
-e[t]=n
+â ó.ﬁ(n)å e={}à t,n ã ¨(n è{})É
+e[n]=t
 Ü
 ë e
 Ü
 â ó.clone(n,t)å e={}ä é t í
  (e,getmetatable(n))Ü
-à t,n ã ¨(n)É
-e[t]=n
+à n,t ã ¨(n)É
+e[n]=t
 Ü
 ë e
 Ü
@@ -399,9 +399,9 @@ e[n]=t
 â ó.address(n)å e
 ä ˛(˚,"_tostring")í
 e=_tostring(n)Ñ
-e=c(n)Ü
+e=d(n)Ü
 ë ñ.≠(e,"^table: ",Œ)èŒÜ
-ó.ö=c
+ó.ö=d
 ó.tostringex=i
 â ó.û(e)ä ®(e)~=™í
 ˚.û(e)Ñ
@@ -410,11 +410,11 @@ e=c(n)Ü
 Ü)ü.†['sllib.string_ext']=(â(...)â ñ.strtox16(e)ë ñ.≠(e,".",â(e)ë ñ.°("%02X",ñ.byte(e))Ü)Ü
 â ñ.x16tostr(e)ë ñ.≠(e,"..",â(e)å e=Á(e,16)ë ñ.char(e)Ü)Ü
 â ñ.dumpex(e)ë ñ.≠(e,".",â(e)ë ñ.°("%02X ",ñ.byte(e))Ü)Ü
-â ñ.rfind(i,t)å n,e=ñ.Ú(i,t,1,ì)å r,o=n,e
-ï n~=ç É
-r,o=n,e
-n,e=ñ.Ú(i,t,e,ì)Ü
-ë r,o
+â ñ.rfind(o,t)å e,n=ñ.Ú(o,t,1,ì)å r,i=e,n
+ï e~=ç É
+r,i=e,n
+e,n=ñ.Ú(o,t,n,ì)Ü
+ë r,i
 Ü
 â ñ.trim(n,e)e=e è"both"ä e=="begin"í
 ë(ñ.≠(n,"^%s*",Œ))Ö e=="end"í
@@ -435,8 +435,8 @@ t(e)Ü
 â ñ.split(n,o)å e=1
 å t=1
 å t={}ï e É
-å o,r=ñ.Ú(n,o,e)ä o Å r í
-ó.ò(t,ñ.Æ(n,e,o-1))e=r+1
+å r,o=ñ.Ú(n,o,e)ä r Å o í
+ó.ò(t,ñ.Æ(n,e,r-1))e=o+1
 Ñ
 ä e<=#n í
 ó.ò(t,ñ.Æ(n,e,-1))Ü
@@ -470,35 +470,35 @@ e=e..r
 e=e..ñ.Æ(n,o+1)Ü
 ë e,t
 Ü
-â ñ.replacesubAll(e,o,t,n)n=n è 1
+â ñ.replacesubAll(e,t,o,n)n=n è 1
 å n=n
 ê
-e,n=ñ.replacesub(e,o,t,n)î n==-1
+e,n=ñ.replacesub(e,t,o,n)î n==-1
 ë e
 Ü
 Ü)ü.†['sllib.math_ext']=(â(...)ä é ≤.pow í
-≤.pow=â(e,n)ë e^n
+≤.pow=â(n,e)ë n^e
 Ü
 Ü
 â ≤.cutf(e,n)å t,e=≤.÷(e)å e=e*≤.pow(10,n)e=≤.÷(e)e=e/≤.pow(10,n)ë t+e
 Ü
-Ü)ü.†['sllib.debug_ext']=(â(...)å i=ô"sllib.profiler"å s=10
-å l=100
+Ü)ü.†['sllib.debug_ext']=(â(...)å i=ô"sllib.profiler"å l=10
+å s=100
 â ∞.tracevalue(e,t)e=e è 2
 t=t è 2
 å r={}ó.ò(r,"stack tracevalue:")å i=á
 å n="  "å t=e+t
 ï e<t É
-å o=∞.Û(e,"nS")i=o.what=="main"å t={}ó.ò(t,ñ.°(n.."file:%s line:%d function:%s()\n",o.ÿ,o.—,o.‘ èŒ))n=n.."  "à n=1,s É
-å o,e=∞.getlocal(e,n)ä ç==o í
+å o=∞.Û(e,"nS")i=o.what=="main"å t={}ó.ò(t,ñ.°(n.."file:%s line:%d function:%s()\n",o.ÿ,o.—,o.‘ èŒ))n=n.."  "à n=1,l É
+å n,e=∞.getlocal(e,n)ä ç==n í
 Ç
 Ü
-ä ®(e)~="function"Å o~="self"í
-å n
+ä ®(e)~="function"Å n~="self"í
+å o
 ä ®(e)==™í
-n=ñ.Æ(ó.tostringex(e),1,l)Ñ
-n=æ(e)Ü
-ó.ò(t,æ(o).."="..n)ó.ò(t,„)Ü
+o=ñ.Æ(ó.tostringex(e),1,s)Ñ
+o=æ(e)Ü
+ó.ò(t,æ(n).."="..o)ó.ò(t,„)Ü
 Ü
 ó.ò(r,ó.≥(t,n))ä i í
 Ç
@@ -508,8 +508,8 @@ n=n.."  "Ü
 ë ó.≥(r,„)Ü
 ∞.startanalysis=â(e)i:setLevel(3)i:start(e)Ü
 ∞.stopanalysis=â(e)i:stop(e)Ü
-Ü)ü.†['sllib.list_ext']=(â(...)§=§ è{}â §.map(e,t)à n,o ã ú(e)É
-e[n]=t(o,n)Ü
+Ü)ü.†['sllib.list_ext']=(â(...)§=§ è{}â §.map(e,o)à n,t ã ú(e)É
+e[n]=o(t,n)Ü
 ë e
 Ü
 â §.filter(e,o)å t={}à r,n ã ú(e)É
@@ -521,21 +521,27 @@ e=t
 Ü
 â §.append(e,n)ó.ò(e,n)ë e
 Ü
+â §.appendList(e,...)à t,n ã ú({...})É
+à t,n ã ú(n)É
+ó.ò(e,n)Ü
+Ü
+ë e
+Ü
 â §.≥(...)å e={}à t,n ã ú({...})É
 à t,n ã ú(n)É
 ó.ò(e,n)Ü
 Ü
 ë e
 Ü
-â §.indexOf(e,t)à n,e ã ú(e)É
-ä e==t í
-ë n
+â §.indexOf(e,n)à t,e ã ú(e)É
+ä e==n í
+ë t
 Ü
 Ü
 ë-1
 Ü
-â §.ø(e,n)à t,o ã ú(e)É
-ä o==n í
+â §.ø(e,o)à t,n ã ú(e)É
+ä n==o í
 ó.ø(e,t)Ç
 Ü
 Ü
@@ -566,10 +572,10 @@ n[e]=e
 Ü
 â §.merge(...)å e=§.≥(...)e=ó.ﬁ(e)ë ó.keys(e)Ü
 â §.mergeex(n,...)å e=§.≥(...)e=§.project(e,n)ë ó.˘(e)Ü
-â §.project(n,t)å e={}à o,n ã ú(n)É
-e[n[t]]=n
+â §.project(e,t)å n={}à o,e ã ú(e)É
+n[e[t]]=e
 Ü
-ë e
+ë n
 Ü
 Ü)ü.†['sllib.coroutine_ext']=(â(...)å n={}å t={}å e=coroutine
 â e.start(n,...)å n=e.create(n)e.ﬂ(n,...)ë n
@@ -589,11 +595,11 @@ t[o]=ì
 e.ﬂ(o)Ü
 n={}Ü
 Ü)ü.†['sllib.set']=(â(...)ä ˛(˚,"set")í
-â ß.˜(e,t)å n=ß.Ù({})à e ã ¨(e)É
-ä ß.œ(t,e)í
-ß.ò(n,e)Ü
+â ß.˜(n,t)å e=ß.Ù({})à n ã ¨(n)É
+ä ß.œ(t,n)í
+ß.ò(e,n)Ü
 Ü
-ë n
+ë e
 Ü
 â ß.›(n)å e={}à n ã ¨(n)É
 ó.ò(e,n)Ü
@@ -607,10 +613,10 @@ n={}Ü
 ß.ò(e,n)Ü
 ë e
 Ü
-â ß.œ(n,e)ë ˛(n,e)==ì
+â ß.œ(e,n)ë ˛(e,n)==ì
 Ü
-â ß.ò(e,n)·(e,n,ì)Ü
-â ß.delete(n,e)·(n,e,ç)Ü
+â ß.ò(n,e)·(n,e,ì)Ü
+â ß.delete(e,n)·(e,n,ç)Ü
 â ß.˜(e,t)å n=ß.Ù()à e ã ß.∆(e)É
 ä ß.œ(t,e)í
 ß.ò(n,e)Ü
@@ -622,31 +628,31 @@ n={}Ü
 ë e
 Ü
 â ß.û(e)å e=ß.›(e)ó.û(e)Ü
-å â o(t,n)å e=ß.Ù()à n ã ß.∆(t)É
+å â l(n,t)å e=ß.Ù()à n ã ß.∆(n)É
 ß.ò(e,n)Ü
-à n ã ß.∆(n)É
+à n ã ß.∆(t)É
 ß.ò(e,n)Ü
 ë e
 Ü
-å â i(n,t)å e=ß.Ù()à n ã ß.∆(n)É
+å â r(n,t)å e=ß.Ù()à n ã ß.∆(n)É
 ä é ß.œ(t,n)í
 ß.ò(e,n)Ü
 Ü
 ë e
 Ü
-å â r(e,n)à e ã ß.∆(e)É
+å â i(e,n)à e ã ß.∆(e)É
 ä é ß.œ(n,e)í
 ë á
 Ü
 Ü
 ë ì
 Ü
-å â l(t,n)ë ß.subset(t,n)Å é ß.subset(n,t)Ü
+å â o(n,t)ë ß.subset(n,t)Å é ß.subset(t,n)Ü
 e.__index=ß
-e.__add=o
-e.__sub=i
-e.__le=r
-e.__lt=l
+e.__add=l
+e.__sub=r
+e.__le=i
+e.__lt=o
 Ü)ü.†['sllib.time']=(â(...)¶=¶ è{}â ¶.¶()ë £.¶()Ü
 â ¶.ƒ()ë £.ƒ()Ü
 â ¶.∂()ä £.∂ í
@@ -661,13 +667,13 @@ e.__lt=l
 Ü)ü.†['sllib.timer']=(â(...)å t=ô"ctimer"©=© è{}ä é t í
 ë ©
 Ü
-å n={}â ©.after(i,r,o)å e=t.µ()å e={loop=á,–=1,¶=i+e,‘=o,cbk=r}ó.ò(n,e)©.⁄()Ü
+å n={}â ©.after(r,o,i)å e=t.µ()å e={loop=á,–=1,¶=r+e,‘=i,cbk=o}ó.ò(n,e)©.⁄()Ü
 â ©.repeats(r,i,o,e)o=o è 0
 e=e è{}å t=t.µ()å t=e.runsoon Å t è r+t
 å e={loop=ì,–=o,¶=t,‘=e.‘,cbk=i,interval=r,‹=e.‹}ó.ò(n,e)©.⁄()Ü
-â ©.cancel(e)à o,t ã ú(n)É
-ä t.‘==e í
-ó.ø(n,o)Ç
+â ©.cancel(e)à t,o ã ú(n)É
+ä o.‘==e í
+ó.ø(n,t)Ç
 Ü
 Ü
 Ü
@@ -701,52 +707,52 @@ n=§.Æ(n,t+1)Ü
 â ©.∂()ë t.µ()Ü
 â ©.¶()ë ≤.floor(t.µ()/1e3+.5)Ü
 â ©.timeinfo()ë t.getTime()Ü
-ë © Ü)ü.†['sllib.logs']=(â(...)•=• è{}å s=á
-å t=ç
-å a=ì
-å i=õ.∫()å r={}å â e(e)å e=ñ.≠(e,"[\r\n\t]",Œ)ä e==Œí
+ë © Ü)ü.†['sllib.logs']=(â(...)•=• è{}å a=á
+å o=ç
+å i=ì
+å l=õ.∫()å r={}å â e(e)å e=ñ.≠(e,"[\r\n\t]",Œ)ä e==Œí
 ë ì
 Ü
 ë á
 Ü
-å o=ì
-å â c(e)ë æ(e,o)Ü
-å â l()ä t í
-ë t
+å t=ì
+å â d(e)ë æ(e,t)Ü
+å â s()ä o í
+ë o
 Ü
-å e=£.ı("*t")å e=ñ.°("%s_%s_%s.log",e.year,e.month,e.day)t=e
+å e=£.ı("*t")å e=ñ.°("%s_%s_%s.log",e.year,e.month,e.day)o=e
 ë e
 Ü
-å â d(e)ä é a í
+å â c(n)ä é i í
 ë
 Ü
-å n=l()€.Ω(n,e,"a+")Ü
-å â n(n,e)e=á
-å e=£.ı("*t")å o=£.ƒ()å t=n
-ä s í
-t=ñ.°("[%s-%s-%s %02s:%02s:%02s %s]%s",e.year,e.month,e.day,e.hour,e.min,e.sec,o,n)Ü
-d(t..'\n')Ü
-â •.˙(e)a=e
+å e=s()€.Ω(e,n,"a+")Ü
+å â n(t,e)e=á
+å e=£.ı("*t")å o=£.ƒ()å n=t
+ä a í
+n=ñ.°("[%s-%s-%s %02s:%02s:%02s %s]%s",e.year,e.month,e.day,e.hour,e.min,e.sec,o,t)Ü
+c(n..'\n')Ü
+â •.˙(e)i=e
 Ü
-â •.showLogTime(e)s=e
+â •.showLogTime(e)a=e
 Ü
-â •.setLogPath(e)t=e
+â •.setLogPath(e)o=e
 Ü
-â •.clear()å e=l()ä é £.Ó(e)í
+â •.clear()å e=s()ä é £.Ó(e)í
 ë
 Ü
 €.Ω(e,Œ)Ü
 â •.≈(...)å e={...}å t=#e
 å t={}à o,e ã ú(e)É
-å e=c(e)ó.ò(t,e)Ü
+å e=d(e)ó.ò(t,e)Ü
 n(ó.≥(t,¯))Ü
 â •.i(...)•.≈(...)Ü
-â •.w(...)õ.π(14)•.≈(...)ä i í õ.∏()Ü
+â •.w(...)õ.π(14)•.≈(...)ä l í õ.∏()Ü
 Ü
-â •.e(...)õ.π(12)•.≈(...)å e=o
-o=á
-n(∞.traceback(Œ,2))o=e
-ä i í õ.∏()Ü
+â •.e(...)õ.π(12)•.≈(...)å e=t
+t=á
+n(∞.traceback(Œ,2))t=e
+ä l í õ.∏()Ü
 Ü
 â •.f(e,...)n(ñ.°(e,...))Ü
 â •.(e,...)e=e è"nil"å e=ñ.°(e,...)å e=∞.traceback(e,2)n(e)Ü
@@ -758,10 +764,10 @@ n(∞.traceback(Œ,2))o=e
 ë •
 Ü)ü.†['sllib.class']=(â(...)å e={}å â o(e)e.__index=e
 ë  ({},e)Ü
-â class(t,r)å n
-ä r í
-n=r:Ê(t)Ñ
-n=e:Ê(t)Ü
+â class(r,t)å n
+ä t í
+n=t:Ê(r)Ñ
+n=e:Ê(r)Ü
 n.Ù=â(...)å e=o(n)e.__class=n
 e:ctor(...)ë e
 Ü
@@ -826,16 +832,16 @@ e={title=n,√=0,Ø=0,}¢.∑[n]=e
 Ü
 ë e
 Ü
-â e:‚(n)å t=â(e)å e=¢:«(e)e.¿=£.ƒ()e.√=e.√+1
+â e:‚(n)å o=â(e)å e=¢:«(e)e.¿=£.ƒ()e.√=e.√+1
 Ü
-å o=â(e)å n=£.ƒ()å e=¢:«(e)ä e.¿ Å e.¿>0 í
+å t=â(e)å n=£.ƒ()å e=¢:«(e)ä e.¿ Å e.¿>0 í
 e.Ø=e.Ø+(n-e.¿)e.¿=0
 Ü
 Ü
 å e=∞.Û(¢.Ï,'nS')ä e í
 ä n=="call"í
-t(e)Ö n=="return"í
-o(e)Ü
+o(e)Ö n=="return"í
+t(e)Ü
 Ü
 Ü
 ë e

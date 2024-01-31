@@ -85,6 +85,19 @@ end
 local bindC = bind(bindTest, "bind call test")
 bindC()
 
+--list
+do
+    print("--list begin")
+    local l1 = {11}
+    local l2 = {22}
+    local l3 = list.concat(l1, l2)
+    table.print(l3)
+    
+    list.appendList(l3, l2)
+    table.print(l3)
+    
+    print("--list end")
+end
 
 -- set
 

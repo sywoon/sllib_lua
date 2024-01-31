@@ -28,6 +28,18 @@ function list.append(l, x)
 	return l
 end
 
+--- Append other lists to a list.
+-- @param x item
+-- @return l self
+function list.appendList(l, ...)
+    for _, sl in ipairs ({...}) do
+		for _, v in ipairs (sl) do
+			table.insert(l, v)
+		end
+	end
+	return l
+end
+
 --- Concatenate lists.
 -- @param ... lists
 function list.concat(...)
