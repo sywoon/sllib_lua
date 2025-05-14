@@ -2,7 +2,7 @@
 --原先输出地址的 变成_tostring
 --require "std"  --混淆后会报错
 
-rawset(_G, "SLLIB_VERSION", "1.1.2")
+rawset(_G, "SLLIB_VERSION", "1.1.3")
 
 
 require "sllib.console"
@@ -23,6 +23,8 @@ require "sllib.time"
 require "sllib.timer"
 require "sllib.logs"
 require "sllib.class"
+require "sllib.cmd"
+require "sllib.jscompress"
 
 
 

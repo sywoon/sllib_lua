@@ -22,6 +22,8 @@ Module "sllib.timer" "timer.lua"
 Module "sllib.logs" "logs.lua"
 Module "sllib.class" "class.lua"
 Module "sllib.profiler" "profiler.lua"
+Module "sllib.cmd" "cmd.lua"
+Module "sllib.jscompress" "jscompress.lua"
 
 
 

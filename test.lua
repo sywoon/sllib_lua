@@ -127,3 +127,49 @@ do
 end
 
 
+--cmd
+do
+    cmd:setOutputCall(log, loge)
+    cmd:run("cd & dir /b .")
+end
+
+
+--jscompress
+do
+    print("==jscompress==")
+    for k, v in pairs(jscompress) do
+        print(k, v)
+    end
+    
+    cmd.showcmd = true
+    local envPath = "C:/cinside/env/"
+    local from = "bundle.js"
+    local to = "bundle_jsmin.js"
+    jscompress:jsmin(from , to, envPath)
+    
+    local to = "bundle_terser.js"
+    jscompress:terser(from , to)
+    
+    local to = "bundle_obfuscator1.js"
+    jscompress:obfuscator(from , to, nil, 1)
+    local to = "bundle_obfuscator2.js"
+    jscompress:obfuscator(from , to, nil, 2)
+    local to = "bundle_obfuscator3.js"
+    jscompress:obfuscator(from , to, nil, 3)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
