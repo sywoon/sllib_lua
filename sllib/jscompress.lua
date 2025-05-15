@@ -24,10 +24,14 @@ function M:terser(from, to, envPath)
 end
 
 -- mode: 1 默认压缩  2平衡性能  3高强度压缩(会影响性能)
-function M:obfuscator(from, to, envPath, mode)
+function M:encode(from, to, envPath, mode)
     local txt = _F('javascript-obfuscator %s --output %s', from, to)
     if mode == 1 then
-        txt = _F('javascript-obfuscator %s --output %s', from, to)
+        -- 测试效果和terser类似 还大一点点
+        -- t.prototype.loadTTFFont => a["prototype"]["loadTTFFont"] 多了引用和括号
+        -- `GetCdnAdrs phpCdnAddress缺少httpState:${n}配置` => 
+        -- "GetCdnAdrs\x20phpCdnAddress缺少httpState:" + f + "配置" 字符串也被改了
+        txt = _F('javascript-obfuscator %s --output %s --compact true --control-flow-flattening false --dead-code-injection false --debug-protection false --disable-console-output false --identifier-names-generator mangled --rename-globals false  --self-defending false --string-array false --transform-object-keys false  --unicode-escape-sequence false', from, to)
     elseif mode == 2 then
         txt = _F('javascript-obfuscator %s --output %s --compact true --identifier-names-generator hexadecimal --string-array true --string-array-threshold 0.5 --string-array-encoding base64 --disable-console-output true --transform-object-keys true --self-defending false --control-flow-flattening false --unicode-escape-sequence false', from, to)
     elseif mode == 3 then
