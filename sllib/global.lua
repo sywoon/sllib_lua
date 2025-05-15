@@ -59,6 +59,33 @@ end
 
 
 
+function checkJsInstall(package_name, showInfo, autoExit)
+    local _log = function (...)
+        if showInfo then
+            print(...)
+        end
+    end
+
+    local check_cmd = "where " .. package_name .. "  >nul 2>&1"
+    local status, msg, code = os.execute(check_cmd)
+    if not status then
+        if showInfo then print(package_name .. " not exist, will install...") end
+        local install_cmd = "npm install -g " .. package_name .. " >nul 2>&1"
+        local install_result = os.execute(install_cmd)
+        if install_result ~= 0 then
+            _log(package_name .. " install failed")
+            if autoExit then os.exit(1) end
+            return false
+        else
+            _log(package_name .. " install success")
+            return true
+        end
+    else
+        _log(package_name .. " already installed")
+        return true
+    end
+end
+
 
 
 
