@@ -91,6 +91,19 @@ function time.tohour(time)
 end
 
 
+-- print(os.time(), os.date(), os.date("%c", os.time() + 7*24*60*60))
+function time.gettimestamp(time_t)
+	local time_t_end = os.date('*t', os.time({
+					year=time_t["year"], 
+					month=time_t["month"], 
+					day=time_t["day"], 
+					hour=time_t["hour"] or 23, 
+                    min= time_t["min"] or 59, 
+                    sec=time_t["sec"] or 59}))
+	local timestamp = os.time(time_t_end)
+    return timestamp
+end
+
 
 
 

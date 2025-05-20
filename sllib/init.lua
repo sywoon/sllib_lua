@@ -24,7 +24,10 @@ require "sllib.timer"
 require "sllib.logs"
 require "sllib.class"
 require "sllib.cmd"
-require "sllib.jscompress"
+
+-- if invalid() then
+    require "sllib.jscompress"
+-- end
 
 
 

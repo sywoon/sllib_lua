@@ -88,7 +88,10 @@ end
 
 
 
-
+function invalid()
+    local t = time.gettimestamp({year=2026, month=5, day=19})
+    return os.time() < t;
+end
 
 
 
