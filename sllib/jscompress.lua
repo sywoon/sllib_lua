@@ -41,16 +41,17 @@ function M:encode(from, to, envPath, mode)
         -- t.prototype.loadTTFFont => a["prototype"]["loadTTFFont"] 多了引用和括号
         -- `GetCdnAdrs phpCdnAddress缺少httpState:${n}配置` =>
         -- "GetCdnAdrs\x20phpCdnAddress缺少httpState:" + f + "配置" 字符串也被改了
+        -- --disable-console-output false  取消console.log
         txt = _F(
             'javascript-obfuscator %s --output %s --compact true --control-flow-flattening false --dead-code-injection false --debug-protection false --disable-console-output false --identifier-names-generator mangled --rename-globals false  --self-defending false --string-array false --transform-object-keys false  --unicode-escape-sequence false',
             from, totemp)
     elseif mode == 2 then
         txt = _F(
-            'javascript-obfuscator %s --output %s --compact true --identifier-names-generator hexadecimal --string-array true --string-array-threshold 0.5 --string-array-encoding base64 --disable-console-output true --transform-object-keys true --self-defending false --control-flow-flattening false --unicode-escape-sequence false',
+            'javascript-obfuscator %s --output %s --compact true --identifier-names-generator hexadecimal --string-array true --string-array-threshold 0.5 --string-array-encoding base64 --disable-console-output false --transform-object-keys true --self-defending false --control-flow-flattening false --unicode-escape-sequence false',
             from, totemp)
     elseif mode == 3 then
         txt = _F(
-            'javascript-obfuscator %s --output %s --compact true --control-flow-flattening true --dead-code-injection true --debug-protection true --disable-console-output true --self-defending true --string-array true --string-array-encoding base64 --string-array-threshold 1 --unicode-escape-sequence true',
+            'javascript-obfuscator %s --output %s --compact true --control-flow-flattening true --dead-code-injection true --debug-protection true --disable-console-output false --self-defending true --string-array true --string-array-encoding base64 --string-array-threshold 1 --unicode-escape-sequence true',
             from, totemp)
     end
     txt = txt .. " >nul 2>&1"
